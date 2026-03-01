@@ -5,6 +5,7 @@ import random
 import string
 
 class CustomUserManager(BaseUserManager):
+    # Custom user manager to handle user creation and superuser creation
     def create_user(self, email, password=None, **extra_fields):
         if not email:
             raise ValueError('The Email field must be set')

@@ -18,6 +18,7 @@ from utils.response import CustomResponse
 
 
 class SignupView(APIView):
+    # User Registration View
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -43,6 +44,7 @@ class SignupView(APIView):
 
 
 class ResendSignupOTPView(APIView):
+    # Login, 2FA, and Password Management Views
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -74,6 +76,7 @@ class ResendSignupOTPView(APIView):
 
 
 class VerifySignupOTPView(APIView):
+    # View to verify signup OTP and complete registration
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -115,6 +118,7 @@ class VerifySignupOTPView(APIView):
 
 
 class LoginView(APIView):
+    # User Login View with optional 2FA
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -187,6 +191,7 @@ class LoginView(APIView):
 
 
 class VerifyLogin2FAView(APIView):
+    # View to verify 2FA OTP during login
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -246,6 +251,7 @@ class VerifyLogin2FAView(APIView):
 
 
 class ResendLogin2FAOTPView(APIView):
+    # View to resend 2FA OTP during login
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -282,6 +288,7 @@ class ResendLogin2FAOTPView(APIView):
 
 
 class Toggle2FAView(APIView):
+    # View to enable or disable two-factor authentication for the user
     permission_classes = [IsAuthenticated]
     
     def patch(self, request):
@@ -310,6 +317,7 @@ class Toggle2FAView(APIView):
 
 
 class ForgotPasswordView(APIView):
+    # View to initiate forgot password process by sending OTP to user's email
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -341,6 +349,7 @@ class ForgotPasswordView(APIView):
 
 
 class ResendForgotPasswordOTPView(APIView):
+    # View to resend OTP for forgot password process
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -372,6 +381,7 @@ class ResendForgotPasswordOTPView(APIView):
 
 
 class VerifyForgotPasswordOTPView(APIView):
+    # View to verify OTP for forgot password process
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -411,6 +421,7 @@ class VerifyForgotPasswordOTPView(APIView):
 
 
 class ResetPasswordView(APIView):
+    # View to reset password after verifying forgot password OTP
     permission_classes = [AllowAny]
     
     def post(self, request):
@@ -461,6 +472,7 @@ class ResetPasswordView(APIView):
 
 
 class ChangePasswordView(APIView):
+    # View to allow authenticated users to change their password
     permission_classes = [IsAuthenticated]
     
     def post(self, request):
@@ -493,6 +505,7 @@ class ChangePasswordView(APIView):
 
 
 class LogoutView(APIView):
+    # View to handle user logout by blacklisting the refresh token
     permission_classes = [IsAuthenticated]
     
     def post(self, request):
@@ -522,6 +535,7 @@ class LogoutView(APIView):
 
 
 class ProfileView(APIView):
+    # View to retrieve and update user profile information
     permission_classes = [IsAuthenticated]
     
     def get(self, request):

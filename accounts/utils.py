@@ -6,7 +6,7 @@ from .models import OTP
 
 
 def send_otp_email(email, otp_code, otp_type):
-    """Send OTP via email"""
+    # Send OTP email based on the type of OTP
     subject_map = {
         'signup': 'Verify Your Email - Signup OTP',
         'login_2fa': 'Two-Factor Authentication - Login OTP',
@@ -32,8 +32,7 @@ def send_otp_email(email, otp_code, otp_type):
 
 
 def create_otp(email, otp_type, remember_me=None):
-    """Create and return OTP instance"""
-    # Invalidate previous OTPs of same type for this email
+    # Invalidate existing OTPs for the same email and type
     OTP.objects.filter(
         email=email,
         otp_type=otp_type,
@@ -58,7 +57,7 @@ def create_otp(email, otp_type, remember_me=None):
 
 
 def verify_otp(email, otp_code, otp_type):
-    """Verify OTP and return validation result"""
+    # Verify the OTP for the given email and type
     try:
         otp = OTP.objects.get(
             email=email,
