@@ -1,2254 +1,2970 @@
 {
-	"info": {
-		"_postman_id": "8cfc3764-68b3-49d5-ba94-8feb76265dde",
-		"name": "BANCre",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "46563624",
-		"_collection_link": "https://speeding-capsule-2516361.postman.co/workspace/a0a19072-c1cd-4710-8246-bf2baee24940/collection/46563624-8cfc3764-68b3-49d5-ba94-8feb76265dde?action=share&source=collection_link&creator=46563624"
-	},
-	"item": [
-		{
-			"name": "accounts",
-			"item": [
-				{
-					"name": "signup",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "customer_type",
-									"value": "Broker",
-									"type": "text"
-								},
-								{
-									"key": "first_name",
-									"value": "John",
-									"type": "text"
-								},
-								{
-									"key": "last_name",
-									"value": "Doe",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "broker@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "+1234567890",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "#jvai2025",
-									"type": "text"
-								},
-								{
-									"key": "confirm_password",
-									"value": "#jvai2025",
-									"type": "text"
-								},
-								{
-									"key": "media_files",
-									"type": "file",
-									"src": "/C:/Users/mdjon/OneDrive/Pictures/freepik__create-a-modern-sleek-logo-for-an-electrical-compa__27825.png"
-								},
-								{
-									"key": "media_files",
-									"type": "file",
-									"src": [],
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/signup/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"signup",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "customer_type",
-											"value": "Broker",
-											"type": "text"
-										},
-										{
-											"key": "first_name",
-											"value": "John",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "Doe",
-											"type": "text"
-										},
-										{
-											"key": "email",
-											"value": "broker@gmail.com",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "+1234567890",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "#jvai2025",
-											"type": "text"
-										},
-										{
-											"key": "confirm_password",
-											"value": "#jvai2025",
-											"type": "text"
-										},
-										{
-											"key": "media_files",
-											"type": "file",
-											"src": "/C:/Users/mdjon/OneDrive/Pictures/freepik__create-a-modern-sleek-logo-for-an-electrical-compa__27825.png"
-										},
-										{
-											"key": "media_files",
-											"type": "file",
-											"src": [],
-											"disabled": true
-										}
-									],
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/signup/",
-									"path": [
-										"api",
-										"accounts",
-										"signup",
-										""
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:19:49 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "165"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"OTP sent to your email\",\n    \"timestamp\": \"2025-12-18T23:19:49.762220+00:00\",\n    \"data\": {\n        \"email\": \"broker@gmail.com\"\n    },\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "verify-otp",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"175178\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/verify-otp/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"verify-otp",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"175178\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/verify-otp/",
-									"path": [
-										"api",
-										"accounts",
-										"verify-otp",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:21:27 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "167"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Verification successful. Registration completed.\",\n    \"timestamp\": \"2025-12-18T23:21:27.564272+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "resend-otp",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/resend-otp/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"resend-otp",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/resend-otp/",
-									"path": [
-										"api",
-										"accounts",
-										"resend-otp",
-										""
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:22:45 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "154"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": false,\n    \"statusCode\": 404,\n    \"message\": \"User not found or already verified\",\n    \"timestamp\": \"2025-12-18T23:22:45.880603+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"password\": \"#jvai2025\",\r\n  \"remember_me\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/login/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"login",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"user@gmail.com\",\r\n  \"password\": \"#jvai202\",\r\n  \"remember_me\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/login/",
-									"path": [
-										"api",
-										"accounts",
-										"login",
-										""
-									]
-								}
-							},
-							"status": "Unauthorized",
-							"code": 401,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:24:00 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "145"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": false,\n    \"statusCode\": 401,\n    \"message\": \"Invalid email or password\",\n    \"timestamp\": \"2025-12-18T23:24:00.905886+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						},
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"password\": \"#jvai2025\",\r\n  \"remember_me\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/accounts/login/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"accounts",
-										"login",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:25:14 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "726"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Login successful\",\n    \"timestamp\": \"2025-12-18T23:25:14.421744+00:00\",\n    \"data\": {\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2OTY0MzE0LCJpYXQiOjE3NjYxMDAzMTQsImp0aSI6ImI2ZDE0YzI0MzY4ZDRhOGM4NGE1NDVlMmU1NDM4MDM3IiwidXNlcl9pZCI6IjIifQ.igHfv8d7aqRjO3_dUQPBjFVzhGPjZ4CE8ya52cU2UXM\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODY5MjMxNCwiaWF0IjoxNzY2MTAwMzE0LCJqdGkiOiJjMjk5MGZkY2ZjOGE0NDBmYmQ2NWFlOGIyMGJiMzkwYiIsInVzZXJfaWQiOiIyIn0.zkPioujdVmdkiuSqbb4MkUx_j8RsxZA9VnCyYfLKzCg\",\n        \"user\": {\n            \"id\": 2,\n            \"email\": \"broker@gmail.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"customer_type\": \"Broker\"\n        }\n    },\n    \"errors\": null\n}"
-						},
-						{
-							"name": "2fa-success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"password\": \"#jvai2025\",\r\n  \"remember_me\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/accounts/login/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"accounts",
-										"login",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:44:05 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "215"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"OTP sent to your email for two-factor authentication\",\n    \"timestamp\": \"2025-12-18T23:44:05.491593+00:00\",\n    \"data\": {\n        \"requires_2fa\": true,\n        \"email\": \"broker@gmail.com\"\n    },\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "verify-2fa",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"231802\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/login/verify-2fa/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"login",
-								"verify-2fa",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "invalid-otp-error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"23180\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/login/verify-2fa/",
-									"path": [
-										"api",
-										"accounts",
-										"login",
-										"verify-2fa",
-										""
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:46:42 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "132"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": false,\n    \"statusCode\": 400,\n    \"message\": \"Invalid OTP.\",\n    \"timestamp\": \"2025-12-18T23:46:42.098451+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						},
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"231802\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/accounts/login/verify-2fa/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"accounts",
-										"login",
-										"verify-2fa",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:47:23 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "746"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Two-factor authentication successful\",\n    \"timestamp\": \"2025-12-18T23:47:23.526551+00:00\",\n    \"data\": {\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2OTY1NjQzLCJpYXQiOjE3NjYxMDE2NDMsImp0aSI6IjY1Y2M4ZjU1NDQ4MzQzZmZiOWQ3MWM5ODBmYWMwNTg5IiwidXNlcl9pZCI6IjIifQ.ORngkppAmVo1Ckzphq7EgGx752eTY18o2omPrdHCJ10\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjEwNTI0MywiaWF0IjoxNzY2MTAxNjQzLCJqdGkiOiJlMDU1YWY0ZWJlMDM0ZTRlODQwMTA1YWRhYzNmYzViYSIsInVzZXJfaWQiOiIyIn0.O_I4MW4un9nhcNPJIVRlZfvn9rD2d4msYPy70uoKttU\",\n        \"user\": {\n            \"id\": 2,\n            \"email\": \"broker@gmail.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"customer_type\": \"Broker\"\n        }\n    },\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "resend-2fa-otp",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/login/resend-2fa-otp/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"login",
-								"resend-2fa-otp",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/login/resend-2fa-otp/",
-									"path": [
-										"api",
-										"accounts",
-										"login",
-										"resend-2fa-otp",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:45:24 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "146"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"A new 2FA OTP has been sent\",\n    \"timestamp\": \"2025-12-18T23:45:24.908337+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "two-factor-toggle",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"enable_2fa\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/two-factor/toggle/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"two-factor",
-								"toggle",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"enable_2fa\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/two-factor/toggle/",
-									"path": [
-										"api",
-										"accounts",
-										"two-factor",
-										"toggle",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:42:31 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "PATCH, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "188"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Two-factor authentication enabled successfully\",\n    \"timestamp\": \"2025-12-18T23:42:31.931406+00:00\",\n    \"data\": {\n        \"two_factor_enabled\": true\n    },\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "forgot-password",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/forgot-password/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"forgot-password",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"brokder@gmail.com\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/forgot-password/",
-									"path": [
-										"api",
-										"accounts",
-										"forgot-password",
-										""
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:28:21 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "155"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": false,\n    \"statusCode\": 404,\n    \"message\": \"User with this email does not exist\",\n    \"timestamp\": \"2025-12-18T23:28:21.030601+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						},
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/accounts/forgot-password/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"accounts",
-										"forgot-password",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:28:51 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "141"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"OTP sent to your email\",\n    \"timestamp\": \"2025-12-18T23:28:51.619240+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "resend-forgot-otp",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/forgot-password/resend/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"forgot-password",
-								"resend",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/forgot-password/resend/",
-									"path": [
-										"api",
-										"accounts",
-										"forgot-password",
-										"resend",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:29:43 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "142"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"A new OTP has been sent\",\n    \"timestamp\": \"2025-12-18T23:29:43.983404+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "verify-forgot-otp",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"894626\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/forgot-password/verify-otp/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"forgot-password",
-								"verify-otp",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"894626\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/forgot-password/verify-otp/",
-									"path": [
-										"api",
-										"accounts",
-										"forgot-password",
-										"verify-otp",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:31:17 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "165"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"OTP verified. You may now reset your password.\",\n    \"timestamp\": \"2025-12-18T23:31:17.637236+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "reset-password",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"new_password\": \"@jvai2025\",\r\n  \"confirm_new_password\": \"@jvai2025\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/reset-password/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"reset-password",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"new_password\": \"@jvai2025\",\r\n  \"confirm_new_password\": \"@jvai202\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/reset-password/",
-									"path": [
-										"api",
-										"accounts",
-										"reset-password",
-										""
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:32:50 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "185"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": false,\n    \"statusCode\": 400,\n    \"message\": \"Validation failed\",\n    \"timestamp\": \"2025-12-18T23:32:50.593258+00:00\",\n    \"data\": null,\n    \"errors\": {\n        \"confirm_new_password\": [\n            \"Passwords do not match.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"new_password\": \"@jvai2025\",\r\n  \"confirm_new_password\": \"@jvai2025\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/accounts/reset-password/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"accounts",
-										"reset-password",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:33:10 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "147"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Password reset successfully.\",\n    \"timestamp\": \"2025-12-18T23:33:10.358264+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "change-password",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"current_password\": \"@jvai2025\",\r\n  \"new_password\": \"#jvai2025\",\r\n  \"confirm_password\": \"#jvai2025\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/change-password/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"change-password",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"current_password\": \"@jvai2025\",\r\n  \"new_password\": \"#jvai2025\",\r\n  \"confirm_password\": \"NewPassword456!\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/change-password/",
-									"path": [
-										"api",
-										"accounts",
-										"change-password",
-										""
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:35:25 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "181"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": false,\n    \"statusCode\": 400,\n    \"message\": \"Validation failed\",\n    \"timestamp\": \"2025-12-18T23:35:25.658537+00:00\",\n    \"data\": null,\n    \"errors\": {\n        \"confirm_password\": [\n            \"Passwords do not match.\"\n        ]\n    }\n}"
-						},
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"current_password\": \"@jvai2025\",\r\n  \"new_password\": \"#jvai2025\",\r\n  \"confirm_password\": \"#jvai2025\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/api/accounts/change-password/",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"api",
-										"accounts",
-										"change-password",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:35:52 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "149"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Password updated successfully.\",\n    \"timestamp\": \"2025-12-18T23:35:52.149156+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "get-profile",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/api/accounts/profile/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"profile",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "/api/accounts/profile/",
-									"path": [
-										"api",
-										"accounts",
-										"profile",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:36:17 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "GET, PATCH, HEAD, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "377"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Profile retrieved successfully\",\n    \"timestamp\": \"2025-12-18T23:36:17.644669+00:00\",\n    \"data\": {\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"broker@gmail.com\",\n        \"phone\": \"+1234567890\",\n        \"profile_photo\": null,\n        \"company_information\": {\n            \"company_name\": null,\n            \"position\": null,\n            \"street_address\": null,\n            \"city\": null,\n            \"state\": null,\n            \"zip_code\": null\n        }\n    },\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "update-profile",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "first_name",
-									"value": "John",
-									"type": "text"
-								},
-								{
-									"key": "last_name",
-									"value": "Doe",
-									"type": "text"
-								},
-								{
-									"key": "phone",
-									"value": "+1234567890",
-									"type": "text"
-								},
-								{
-									"key": "profile_photo",
-									"type": "file",
-									"src": "/C:/Users/mdjon/OneDrive/Pictures/frog-animal-cartoons-isolated-flat-illustration-free-vector.jpg"
-								},
-								{
-									"key": "company_name",
-									"value": "Tech Solutions Inc",
-									"type": "text"
-								},
-								{
-									"key": "position",
-									"value": "Senior Broker",
-									"type": "text"
-								},
-								{
-									"key": "street_address",
-									"value": "123 Main St",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "New York",
-									"type": "text"
-								},
-								{
-									"key": "state",
-									"value": "NY",
-									"type": "text"
-								},
-								{
-									"key": "zip_code",
-									"value": "10001",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/profile/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"profile",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "first_name",
-											"value": "John",
-											"type": "text"
-										},
-										{
-											"key": "last_name",
-											"value": "Doe",
-											"type": "text"
-										},
-										{
-											"key": "phone",
-											"value": "+1234567890",
-											"type": "text"
-										},
-										{
-											"key": "profile_photo",
-											"type": "file",
-											"src": "/C:/Users/mdjon/OneDrive/Pictures/frog-animal-cartoons-isolated-flat-illustration-free-vector.jpg"
-										},
-										{
-											"key": "company_name",
-											"value": "Tech Solutions Inc",
-											"type": "text"
-										},
-										{
-											"key": "position",
-											"value": "Senior Broker",
-											"type": "text"
-										},
-										{
-											"key": "street_address",
-											"value": "123 Main St",
-											"type": "text"
-										},
-										{
-											"key": "city",
-											"value": "New York",
-											"type": "text"
-										},
-										{
-											"key": "state",
-											"value": "NY",
-											"type": "text"
-										},
-										{
-											"key": "zip_code",
-											"value": "10001",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "/api/accounts/profile/",
-									"path": [
-										"api",
-										"accounts",
-										"profile",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:40:45 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "GET, PATCH, HEAD, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "515"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Profile updated successfully\",\n    \"timestamp\": \"2025-12-18T23:40:45.416021+00:00\",\n    \"data\": {\n        \"profile\": {\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"email\": \"broker@gmail.com\",\n            \"phone\": \"+1234567890\",\n            \"profile_photo\": \"/media/profile_photos/frog-animal-cartoons-isolated-flat-illustration-free-vector.jpg\",\n            \"company_information\": {\n                \"company_name\": \"Tech Solutions Inc\",\n                \"position\": \"Senior Broker\",\n                \"street_address\": \"123 Main St\",\n                \"city\": \"New York\",\n                \"state\": \"NY\",\n                \"zip_code\": \"10001\"\n            }\n        }\n    },\n    \"errors\": null\n}"
-						}
-					]
-				},
-				{
-					"name": "logout",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjEwNTI0MywiaWF0IjoxNzY2MTAxNjQzLCJqdGkiOiJlMDU1YWY0ZWJlMDM0ZTRlODQwMTA1YWRhYzNmYzViYSIsInVzZXJfaWQiOiIyIn0.O_I4MW4un9nhcNPJIVRlZfvn9rD2d4msYPy70uoKttU\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/api/accounts/logout/",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"accounts",
-								"logout",
-								""
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjEwNTI0MywiaWF0IjoxNzY2MTAxNjQzLCJqdGkiOiJlMDU1YWY0ZWJlMDM0ZTRlODQwMTA1YWRhYzNmYzViYSIsInVzZXJfaWQiOiIyIn0.O_I4MW4un9nhcNPJIVRlZfvn9rD2d4msYPy70uoKttU\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "/api/accounts/logout/",
-									"path": [
-										"api",
-										"accounts",
-										"logout",
-										""
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": null,
-							"header": [
-								{
-									"key": "Date",
-									"value": "Thu, 18 Dec 2025 23:49:31 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.13.9"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept"
-								},
-								{
-									"key": "Allow",
-									"value": "POST, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "143"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Successfully logged out.\",\n    \"timestamp\": \"2025-12-18T23:49:31.616904+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
-						}
-					]
-				}
-			]
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"requests": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"requests": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "base_url",
-			"value": ""
-		},
-		{
-			"key": "access_token",
-			"value": ""
-		}
-	]
+  "info": {
+    "_postman_id": "8cfc3764-68b3-49d5-ba94-8feb76265dde",
+    "name": "BANCre",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46563624",
+    "_collection_link": "https://go.postman.co/collection/46563624-8cfc3764-68b3-49d5-ba94-8feb76265dde?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "accounts",
+      "item": [
+        {
+          "name": "signup",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "customer_type",
+                  "value": "Broker",
+                  "type": "text"
+                },
+                {
+                  "key": "first_name",
+                  "value": "John",
+                  "type": "text"
+                },
+                {
+                  "key": "last_name",
+                  "value": "Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "broker@gmail.com",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+1234567890",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "#jvai2025",
+                  "type": "text"
+                },
+                {
+                  "key": "confirm_password",
+                  "value": "#jvai2025",
+                  "type": "text"
+                },
+                {
+                  "key": "media_files",
+                  "type": "file",
+                  "src": "/C:/Users/mdjon/OneDrive/Pictures/freepik__create-a-modern-sleek-logo-for-an-electrical-compa__27825.png"
+                },
+                {
+                  "key": "media_files",
+                  "type": "file",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/signup/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "signup",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "customer_type",
+                      "value": "Broker",
+                      "type": "text"
+                    },
+                    {
+                      "key": "first_name",
+                      "value": "John",
+                      "type": "text"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "Doe",
+                      "type": "text"
+                    },
+                    {
+                      "key": "email",
+                      "value": "broker@gmail.com",
+                      "type": "text"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "+1234567890",
+                      "type": "text"
+                    },
+                    {
+                      "key": "password",
+                      "value": "#jvai2025",
+                      "type": "text"
+                    },
+                    {
+                      "key": "confirm_password",
+                      "value": "#jvai2025",
+                      "type": "text"
+                    },
+                    {
+                      "key": "media_files",
+                      "type": "file",
+                      "src": "/C:/Users/mdjon/OneDrive/Pictures/freepik__create-a-modern-sleek-logo-for-an-electrical-compa__27825.png"
+                    },
+                    {
+                      "key": "media_files",
+                      "type": "file",
+                      "value": null,
+                      "disabled": true
+                    }
+                  ],
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/signup/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "signup",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:19:49 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "165"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"OTP sent to your email\",\n    \"timestamp\": \"2025-12-18T23:19:49.762220+00:00\",\n    \"data\": {\n        \"email\": \"broker@gmail.com\"\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "verify-otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"175178\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/verify-otp/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "verify-otp",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"175178\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/verify-otp/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "verify-otp",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:21:27 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "167"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Verification successful. Registration completed.\",\n    \"timestamp\": \"2025-12-18T23:21:27.564272+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "resend-otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/resend-otp/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "resend-otp",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/resend-otp/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "resend-otp",
+                    ""
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:22:45 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "154"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 404,\n    \"message\": \"User not found or already verified\",\n    \"timestamp\": \"2025-12-18T23:22:45.880603+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"password\": \"#jvai2025\",\r\n  \"remember_me\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/login/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"user@gmail.com\",\r\n  \"password\": \"#jvai202\",\r\n  \"remember_me\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/login/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "login",
+                    ""
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:24:00 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "145"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 401,\n    \"message\": \"Invalid email or password\",\n    \"timestamp\": \"2025-12-18T23:24:00.905886+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            },
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"password\": \"#jvai2025\",\r\n  \"remember_me\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/login/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "login",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:25:14 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "726"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Login successful\",\n    \"timestamp\": \"2025-12-18T23:25:14.421744+00:00\",\n    \"data\": {\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2OTY0MzE0LCJpYXQiOjE3NjYxMDAzMTQsImp0aSI6ImI2ZDE0YzI0MzY4ZDRhOGM4NGE1NDVlMmU1NDM4MDM3IiwidXNlcl9pZCI6IjIifQ.igHfv8d7aqRjO3_dUQPBjFVzhGPjZ4CE8ya52cU2UXM\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODY5MjMxNCwiaWF0IjoxNzY2MTAwMzE0LCJqdGkiOiJjMjk5MGZkY2ZjOGE0NDBmYmQ2NWFlOGIyMGJiMzkwYiIsInVzZXJfaWQiOiIyIn0.zkPioujdVmdkiuSqbb4MkUx_j8RsxZA9VnCyYfLKzCg\",\n        \"user\": {\n            \"id\": 2,\n            \"email\": \"broker@gmail.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"customer_type\": \"Broker\"\n        }\n    },\n    \"errors\": null\n}"
+            },
+            {
+              "name": "2fa-success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"password\": \"#jvai2025\",\r\n  \"remember_me\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/login/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "login",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:44:05 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "215"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"OTP sent to your email for two-factor authentication\",\n    \"timestamp\": \"2025-12-18T23:44:05.491593+00:00\",\n    \"data\": {\n        \"requires_2fa\": true,\n        \"email\": \"broker@gmail.com\"\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "verify-2fa",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"231802\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/login/verify-2fa/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "login",
+                "verify-2fa",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "invalid-otp-error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"23180\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/login/verify-2fa/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "login",
+                    "verify-2fa",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:46:42 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "132"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 400,\n    \"message\": \"Invalid OTP.\",\n    \"timestamp\": \"2025-12-18T23:46:42.098451+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            },
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"231802\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/login/verify-2fa/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "login",
+                    "verify-2fa",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:47:23 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "746"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Two-factor authentication successful\",\n    \"timestamp\": \"2025-12-18T23:47:23.526551+00:00\",\n    \"data\": {\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY2OTY1NjQzLCJpYXQiOjE3NjYxMDE2NDMsImp0aSI6IjY1Y2M4ZjU1NDQ4MzQzZmZiOWQ3MWM5ODBmYWMwNTg5IiwidXNlcl9pZCI6IjIifQ.ORngkppAmVo1Ckzphq7EgGx752eTY18o2omPrdHCJ10\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjEwNTI0MywiaWF0IjoxNzY2MTAxNjQzLCJqdGkiOiJlMDU1YWY0ZWJlMDM0ZTRlODQwMTA1YWRhYzNmYzViYSIsInVzZXJfaWQiOiIyIn0.O_I4MW4un9nhcNPJIVRlZfvn9rD2d4msYPy70uoKttU\",\n        \"user\": {\n            \"id\": 2,\n            \"email\": \"broker@gmail.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"customer_type\": \"Broker\"\n        }\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "resend-2fa-otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/login/resend-2fa-otp/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "login",
+                "resend-2fa-otp",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/login/resend-2fa-otp/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "login",
+                    "resend-2fa-otp",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:45:24 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "146"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"A new 2FA OTP has been sent\",\n    \"timestamp\": \"2025-12-18T23:45:24.908337+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "two-factor-toggle",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"enable_2fa\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/two-factor/toggle/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "two-factor",
+                "toggle",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"enable_2fa\": true\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/two-factor/toggle/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "two-factor",
+                    "toggle",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:42:31 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "PATCH, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "188"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Two-factor authentication enabled successfully\",\n    \"timestamp\": \"2025-12-18T23:42:31.931406+00:00\",\n    \"data\": {\n        \"two_factor_enabled\": true\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "forgot-password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/forgot-password/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "forgot-password",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"brokder@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/forgot-password/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "forgot-password",
+                    ""
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:28:21 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "155"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 404,\n    \"message\": \"User with this email does not exist\",\n    \"timestamp\": \"2025-12-18T23:28:21.030601+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            },
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/forgot-password/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "forgot-password",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:28:51 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "141"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"OTP sent to your email\",\n    \"timestamp\": \"2025-12-18T23:28:51.619240+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "resend-forgot-otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/forgot-password/resend/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "forgot-password",
+                "resend",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/forgot-password/resend/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "forgot-password",
+                    "resend",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:29:43 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "142"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"A new OTP has been sent\",\n    \"timestamp\": \"2025-12-18T23:29:43.983404+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "verify-forgot-otp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"894626\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/forgot-password/verify-otp/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "forgot-password",
+                "verify-otp",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"otp_code\": \"894626\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/forgot-password/verify-otp/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "forgot-password",
+                    "verify-otp",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:31:17 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "165"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"OTP verified. You may now reset your password.\",\n    \"timestamp\": \"2025-12-18T23:31:17.637236+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "reset-password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"new_password\": \"@jvai2025\",\r\n  \"confirm_new_password\": \"@jvai2025\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/reset-password/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "reset-password",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"new_password\": \"@jvai2025\",\r\n  \"confirm_new_password\": \"@jvai202\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/reset-password/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "reset-password",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:32:50 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "185"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 400,\n    \"message\": \"Validation failed\",\n    \"timestamp\": \"2025-12-18T23:32:50.593258+00:00\",\n    \"data\": null,\n    \"errors\": {\n        \"confirm_new_password\": [\n            \"Passwords do not match.\"\n        ]\n    }\n}"
+            },
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"broker@gmail.com\",\r\n  \"new_password\": \"@jvai2025\",\r\n  \"confirm_new_password\": \"@jvai2025\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/reset-password/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "reset-password",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:33:10 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "147"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Password reset successfully.\",\n    \"timestamp\": \"2025-12-18T23:33:10.358264+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "change-password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"current_password\": \"@jvai2025\",\r\n  \"new_password\": \"#jvai2025\",\r\n  \"confirm_password\": \"#jvai2025\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/change-password/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "change-password",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"current_password\": \"@jvai2025\",\r\n  \"new_password\": \"#jvai2025\",\r\n  \"confirm_password\": \"NewPassword456!\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/change-password/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "change-password",
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:35:25 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "181"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": false,\n    \"statusCode\": 400,\n    \"message\": \"Validation failed\",\n    \"timestamp\": \"2025-12-18T23:35:25.658537+00:00\",\n    \"data\": null,\n    \"errors\": {\n        \"confirm_password\": [\n            \"Passwords do not match.\"\n        ]\n    }\n}"
+            },
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"current_password\": \"@jvai2025\",\r\n  \"new_password\": \"#jvai2025\",\r\n  \"confirm_password\": \"#jvai2025\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/change-password/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "change-password",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:35:52 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "149"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Password updated successfully.\",\n    \"timestamp\": \"2025-12-18T23:35:52.149156+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "get-profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/accounts/profile/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "profile",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/profile/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "profile",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:36:17 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, PATCH, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "377"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Profile retrieved successfully\",\n    \"timestamp\": \"2025-12-18T23:36:17.644669+00:00\",\n    \"data\": {\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"email\": \"broker@gmail.com\",\n        \"phone\": \"+1234567890\",\n        \"profile_photo\": null,\n        \"company_information\": {\n            \"company_name\": null,\n            \"position\": null,\n            \"street_address\": null,\n            \"city\": null,\n            \"state\": null,\n            \"zip_code\": null\n        }\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "update-profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "first_name",
+                  "value": "John",
+                  "type": "text"
+                },
+                {
+                  "key": "last_name",
+                  "value": "Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+1234567890",
+                  "type": "text"
+                },
+                {
+                  "key": "profile_photo",
+                  "type": "file",
+                  "src": "/C:/Users/mdjon/OneDrive/Pictures/frog-animal-cartoons-isolated-flat-illustration-free-vector.jpg"
+                },
+                {
+                  "key": "company_name",
+                  "value": "Tech Solutions Inc",
+                  "type": "text"
+                },
+                {
+                  "key": "position",
+                  "value": "Senior Broker",
+                  "type": "text"
+                },
+                {
+                  "key": "street_address",
+                  "value": "123 Main St",
+                  "type": "text"
+                },
+                {
+                  "key": "city",
+                  "value": "New York",
+                  "type": "text"
+                },
+                {
+                  "key": "state",
+                  "value": "NY",
+                  "type": "text"
+                },
+                {
+                  "key": "zip_code",
+                  "value": "10001",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/profile/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "profile",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "first_name",
+                      "value": "John",
+                      "type": "text"
+                    },
+                    {
+                      "key": "last_name",
+                      "value": "Doe",
+                      "type": "text"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "+1234567890",
+                      "type": "text"
+                    },
+                    {
+                      "key": "profile_photo",
+                      "type": "file",
+                      "src": "/C:/Users/mdjon/OneDrive/Pictures/frog-animal-cartoons-isolated-flat-illustration-free-vector.jpg"
+                    },
+                    {
+                      "key": "company_name",
+                      "value": "Tech Solutions Inc",
+                      "type": "text"
+                    },
+                    {
+                      "key": "position",
+                      "value": "Senior Broker",
+                      "type": "text"
+                    },
+                    {
+                      "key": "street_address",
+                      "value": "123 Main St",
+                      "type": "text"
+                    },
+                    {
+                      "key": "city",
+                      "value": "New York",
+                      "type": "text"
+                    },
+                    {
+                      "key": "state",
+                      "value": "NY",
+                      "type": "text"
+                    },
+                    {
+                      "key": "zip_code",
+                      "value": "10001",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/profile/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "profile",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:40:45 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, PATCH, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "515"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Profile updated successfully\",\n    \"timestamp\": \"2025-12-18T23:40:45.416021+00:00\",\n    \"data\": {\n        \"profile\": {\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"email\": \"broker@gmail.com\",\n            \"phone\": \"+1234567890\",\n            \"profile_photo\": \"/media/profile_photos/frog-animal-cartoons-isolated-flat-illustration-free-vector.jpg\",\n            \"company_information\": {\n                \"company_name\": \"Tech Solutions Inc\",\n                \"position\": \"Senior Broker\",\n                \"street_address\": \"123 Main St\",\n                \"city\": \"New York\",\n                \"state\": \"NY\",\n                \"zip_code\": \"10001\"\n            }\n        }\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjEwNTI0MywiaWF0IjoxNzY2MTAxNjQzLCJqdGkiOiJlMDU1YWY0ZWJlMDM0ZTRlODQwMTA1YWRhYzNmYzViYSIsInVzZXJfaWQiOiIyIn0.O_I4MW4un9nhcNPJIVRlZfvn9rD2d4msYPy70uoKttU\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/logout/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "logout",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjEwNTI0MywiaWF0IjoxNzY2MTAxNjQzLCJqdGkiOiJlMDU1YWY0ZWJlMDM0ZTRlODQwMTA1YWRhYzNmYzViYSIsInVzZXJfaWQiOiIyIn0.O_I4MW4un9nhcNPJIVRlZfvn9rD2d4msYPy70uoKttU\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/logout/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "logout",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Dec 2025 23:49:31 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "143"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Successfully logged out.\",\n    \"timestamp\": \"2025-12-18T23:49:31.616904+00:00\",\n    \"data\": null,\n    \"errors\": null\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "properties",
+      "item": [
+        {
+          "name": "create-property",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"latitude\": \"40.7128000\",\r\n    \"longitude\": \"-74.0060000\",\r\n    \"property_name\": \"Sunset Apartments\",\r\n    \"property_address\": \"123 Main Street, New York, NY 10001\",\r\n    \"property_type\": \"Multifamily\",\r\n    \"number_of_units\": 48,\r\n    \"rentable_area\": \"52000.00\",\r\n    \"year_built\": 1998,\r\n    \"year_renovated\": 2018,\r\n    \"occupancy\": \"92.50\",\r\n    \"parking_spaces\": 60\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/properties/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"latitude\": \"40.7128000\",\r\n    \"longitude\": \"-74.0060000\",\r\n    \"property_name\": \"Sunset Apartments\",\r\n    \"property_address\": \"123 Main Street, New York, NY 10001\",\r\n    \"property_type\": \"Multifamily\",\r\n    \"number_of_units\": 48,\r\n    \"rentable_area\": \"52000.00\",\r\n    \"year_built\": 1998,\r\n    \"year_renovated\": 2018,\r\n    \"occupancy\": \"92.50\",\r\n    \"parking_spaces\": 60\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/properties/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 23:18:57 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "586"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"Property created successfully.\",\n    \"timestamp\": \"2026-03-01T23:18:57.439133+00:00\",\n    \"data\": {\n        \"id\": 1,\n        \"latitude\": \"40.7128000\",\n        \"longitude\": \"-74.0060000\",\n        \"property_name\": \"Sunset Apartments\",\n        \"property_address\": \"123 Main Street, New York, NY 10001\",\n        \"property_type\": \"Multifamily\",\n        \"number_of_units\": 48,\n        \"rentable_area\": \"52000.00\",\n        \"year_built\": 1998,\n        \"year_renovated\": 2018,\n        \"occupancy\": \"92.50\",\n        \"parking_spaces\": 60,\n        \"sponsor\": \"sponsor1@gmail.com\",\n        \"created_at\": \"2026-03-01T23:18:57.429442Z\",\n        \"updated_at\": \"2026-03-01T23:18:57.429456Z\",\n        \"documents\": []\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "upload-documents",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "files",
+                  "type": "file",
+                  "uuid": "d9be1c6c-2d82-47c7-9e94-986787e4d49f",
+                  "src": [
+                    "/C:/Users/mdjon/Desktop/Labu/Project/Stovetop Radio/Documents/Stovetop Radio – Admin Panel User Guide.pdf",
+                    "/C:/Users/mdjon/Documents/Md. Joni Akter Labu - Resume.pdf"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/properties/:id/documents/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                ":id",
+                "documents",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "files",
+                      "type": "file",
+                      "uuid": "d9be1c6c-2d82-47c7-9e94-986787e4d49f",
+                      "src": [
+                        "/C:/Users/mdjon/Desktop/Labu/Project/Stovetop Radio/Documents/Stovetop Radio – Admin Panel User Guide.pdf",
+                        "/C:/Users/mdjon/Documents/Md. Joni Akter Labu - Resume.pdf"
+                      ]
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/properties/:id/documents/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ":id",
+                    "documents",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 23:23:44 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "462"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"2 document(s) uploaded successfully.\",\n    \"timestamp\": \"2026-03-01T23:23:44.106047+00:00\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"file_url\": \"http://127.0.0.1:8000/media/properties/1/documents/Stovetop_Radio__Admin_Panel_User_Guide.pdf\",\n            \"uploaded_at\": \"2026-03-01T23:23:44.098108Z\"\n        },\n        {\n            \"id\": 2,\n            \"file_url\": \"http://127.0.0.1:8000/media/properties/1/documents/Md._Joni_Akter_Labu_-_Resume.pdf\",\n            \"uploaded_at\": \"2026-03-01T23:23:44.102766Z\"\n        }\n    ],\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "property-details",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/properties/:id/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ":id",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 23:26:12 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "897"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Property retrieved successfully.\",\n    \"timestamp\": \"2026-03-01T23:26:12.798820+00:00\",\n    \"data\": {\n        \"id\": 1,\n        \"latitude\": \"40.7128000\",\n        \"longitude\": \"-74.0060000\",\n        \"property_name\": \"Sunset Apartments\",\n        \"property_address\": \"123 Main Street, New York, NY 10001\",\n        \"property_type\": \"Multifamily\",\n        \"number_of_units\": 48,\n        \"rentable_area\": \"52000.00\",\n        \"year_built\": 1998,\n        \"year_renovated\": 2018,\n        \"occupancy\": \"92.50\",\n        \"parking_spaces\": 60,\n        \"sponsor\": \"sponsor1@gmail.com\",\n        \"created_at\": \"2026-03-01T23:18:57.429442Z\",\n        \"updated_at\": \"2026-03-01T23:18:57.429456Z\",\n        \"documents\": [\n            {\n                \"id\": 2,\n                \"file_url\": \"http://127.0.0.1:8000/media/properties/1/documents/Md._Joni_Akter_Labu_-_Resume.pdf\",\n                \"uploaded_at\": \"2026-03-01T23:23:44.102766Z\"\n            },\n            {\n                \"id\": 1,\n                \"file_url\": \"http://127.0.0.1:8000/media/properties/1/documents/Stovetop_Radio__Admin_Panel_User_Guide.pdf\",\n                \"uploaded_at\": \"2026-03-01T23:23:44.098108Z\"\n            }\n        ]\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "properties-list",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/properties/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/properties/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 23:30:37 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "418"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Properties retrieved successfully.\",\n    \"timestamp\": \"2026-03-01T23:30:37.256199+00:00\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"property_name\": \"Sunset Apartments\",\n            \"property_address\": \"123 Main Street, New York, NY 10001\",\n            \"property_type\": \"Multifamily\",\n            \"latitude\": \"40.7128000\",\n            \"longitude\": \"-74.0060000\",\n            \"created_at\": \"2026-03-01T23:18:57.429442Z\",\n            \"updated_at\": \"2026-03-01T23:18:57.429456Z\"\n        }\n    ],\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "documents-list",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/properties/:id/documents/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                ":id",
+                "documents",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/properties/:id/documents/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ":id",
+                    "documents",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 01 Mar 2026 23:41:14 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "459"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Documents retrieved successfully.\",\n    \"timestamp\": \"2026-03-01T23:41:14.362590+00:00\",\n    \"data\": [\n        {\n            \"id\": 2,\n            \"file_url\": \"http://127.0.0.1:8000/media/properties/1/documents/Md._Joni_Akter_Labu_-_Resume.pdf\",\n            \"uploaded_at\": \"2026-03-01T23:23:44.102766Z\"\n        },\n        {\n            \"id\": 1,\n            \"file_url\": \"http://127.0.0.1:8000/media/properties/1/documents/Stovetop_Radio__Admin_Panel_User_Guide.pdf\",\n            \"uploaded_at\": \"2026-03-01T23:23:44.098108Z\"\n        }\n    ],\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "all-properties (for lender)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/properties/map/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                "map",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-a-property",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"property_name\": \"Sunset Apartments - Renovated\",\r\n    \"occupancy\": \"95.00\",\r\n    \"year_renovated\": 2024\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/properties/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-a-property",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/properties/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                ":id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-a-document",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/properties/1/documents/1/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                "1",
+                "documents",
+                "1",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    }
+  ]
 }
