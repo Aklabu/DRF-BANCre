@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 
 
+# Memorandum model represents the overall document for a property, created by a sponsor
 class Memorandum(models.Model):
     STATUS_CHOICES = [
         ('Generating', 'Generating'),
@@ -43,6 +44,7 @@ def section_image_upload_path(instance, filename):
     return f'memorandums/{instance.memorandum.id}/sections/{filename}'
 
 
+# Each section of the memorandum, like Executive Summary, Property Overview, etc.
 class MemorandumSection(models.Model):
     SECTION_TYPE_CHOICES = [
         ('property_information', 'Property Information'),
