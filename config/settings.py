@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     # Local apps
     'accounts',
     'properties',
+    'memorandums',
 ]
 
 MIDDLEWARE = [
