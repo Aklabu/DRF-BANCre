@@ -2931,6 +2931,1001 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "memorandums",
+      "item": [
+        {
+          "name": "generate-memorandums",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"property_id\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/memorandums/generate/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "memorandums",
+                "generate",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"property_id\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/memorandums/generate/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "memorandums",
+                    "generate",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 04 Mar 2026 00:27:13 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "164"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"Memorandum generation started.\",\n    \"timestamp\": \"2026-03-04T00:27:13.339479+00:00\",\n    \"data\": {\n        \"memorandum_id\": 2\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "memorandums-list",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/memorandums/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "memorandums",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/memorandums/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "memorandums",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 04 Mar 2026 00:29:16 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "533"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Memorandums retrieved successfully.\",\n    \"timestamp\": \"2026-03-04T00:29:16.803653+00:00\",\n    \"data\": [\n        {\n            \"id\": 2,\n            \"title\": \"Sunset Apartments — Offering Memorandum\",\n            \"property\": 1,\n            \"property_name\": \"Sunset Apartments\",\n            \"status\": \"Generating\",\n            \"mode\": \"Editor\",\n            \"created_at\": \"2026-03-04T00:27:13.235246Z\"\n        },\n        {\n            \"id\": 1,\n            \"title\": \"Sunset Apartments — Offering Memorandum\",\n            \"property\": 1,\n            \"property_name\": \"Sunset Apartments\",\n            \"status\": \"Generating\",\n            \"mode\": \"Editor\",\n            \"created_at\": \"2026-03-03T23:20:37.644842Z\"\n        }\n    ],\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "memorandums-details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/memorandums/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "memorandums",
+                ":id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/memorandums/:id/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "memorandums",
+                    ":id",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 04 Mar 2026 00:30:07 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, PATCH, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "30674"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Memorandum retrieved successfully.\",\n    \"timestamp\": \"2026-03-04T00:30:07.603372+00:00\",\n    \"data\": {\n        \"id\": 2,\n        \"title\": \"Sunset Apartments — Offering Memorandum\",\n        \"property\": 1,\n        \"property_name\": \"Sunset Apartments\",\n        \"status\": \"Draft\",\n        \"mode\": \"Editor\",\n        \"created_at\": \"2026-03-04T00:27:13.235246Z\",\n        \"updated_at\": \"2026-03-04T00:29:54.745464Z\",\n        \"sections\": [\n            {\n                \"id\": 1,\n                \"section_type\": \"property_information\",\n                \"content\": \"**Property Information**\\n\\n- **Property Name:** Sunset Apartments\\n- **Address:** 123 Main Street, New York, NY 10001\\n- **Type:** Multifamily\\n- **Number of Units:** 48\\n- **Rentable Area:** 52,000.00 SF\\n- **Year Built:** 1998\\n- **Year Renovated:** 2018\\n- **Occupancy Rate:** 92.50%\\n- **Parking Spaces:** 60\",\n                \"image_url\": null,\n                \"order\": 0,\n                \"updated_at\": \"2026-03-04T00:29:54.738584Z\"\n            },\n            {\n                \"id\": 2,\n                \"section_type\": \"executive_summary\",\n                \"content\": \"**Executive Summary: Sunset Apartments**\\n\\n**Property Overview:**\\nSunset Apartments, located at 123 Main Street, New York, NY 10001, presents a compelling investment opportunity in the multifamily housing sector. This well-maintained property, built in 1998 and renovated in 2018, comprises 48 residential units with a total rentable area of 52,000 square feet. With an impressive occupancy rate of 92.5%, Sunset Apartments demonstrates strong demand and operational efficiency in a highly sought-after urban market.\\n\\n**Investment Opportunity:**\\nThe multifamily real estate market in New York City continues to thrive, driven by a robust economy and a growing population. Sunset Apartments offers investors a chance to capitalize on this trend with a stable cash flow and potential for appreciation. The property features 60 parking spaces, enhancing its appeal to tenants in a city where parking is a premium. The recent renovations have modernized the units, allowing for competitive rental rates and attracting quality tenants.\\n\\n**Key Financial Metrics:**\\n- **Units:** 48\\n- **Rentable Area:** 52,000 SF\\n- **Occupancy Rate:** 92.5%\\n- **Year Built:** 1998\\n- **Year Renovated:** 2018\\n- **Parking Spaces:** 60\\n\\nThese metrics indicate a well-performing asset with a solid foundation for continued growth. The combination of high occupancy and recent renovations positions Sunset Apartments as a prime candidate for both immediate income generation and long-term value appreciation.\\n\\n**Location Strengths:**\\nSituated in a vibrant neighborhood of New York City, Sunset Apartments benefits from proximity to essential amenities, including shopping, dining, and public transportation. The location is strategically positioned to attract a diverse tenant base, including young professionals and families seeking urban living with convenient access to the city's cultural and economic opportunities. The area's ongoing development projects further enhance its desirability, promising future growth and stability.\\n\\n**Conclusion:**\\nSunset Apartments represents an attractive investment opportunity in the competitive New York City multifamily market. With its strong occupancy rates, recent renovations, and prime location, this property is poised for continued success. Investors can expect reliable cash flow and potential appreciation, making Sunset Apartments a valuable addition to any real estate portfolio. We invite you to explore this opportunity further and consider the long-term benefits of investing in Sunset Apartments.\",\n                \"image_url\": null,\n                \"order\": 1,\n                \"updated_at\": \"2026-03-04T00:29:54.738637Z\"\n            },\n            {\n                \"id\": 3,\n                \"section_type\": \"property_overview\",\n                \"content\": \"**Property Overview**\\n\\nSunset Apartments, located at 123 Main Street in the vibrant city of New York, NY, is a well-appointed multifamily residential property that offers a blend of modern living and urban convenience. Built in 1998 and thoughtfully renovated in 2018, this property encompasses a total rentable area of 52,000 square feet, housing 48 residential units. The building's design reflects contemporary architectural trends, featuring a mix of brick and stucco exteriors that harmonize with the surrounding urban landscape.\\n\\nThe unit mix at Sunset Apartments is diverse, catering to a variety of tenant needs. The property includes a combination of one-bedroom and two-bedroom apartments, designed to accommodate both individuals and small families. Each unit is equipped with modern amenities, including updated kitchens with stainless steel appliances, spacious living areas, and ample natural light, creating a welcoming atmosphere for residents.\\n\\nStrategically situated in a prime location, Sunset Apartments benefits from its proximity to essential services and local attractions. The property is conveniently located near public transportation options, providing easy access to the broader New York metropolitan area. Residents can enjoy nearby parks, shopping centers, and dining establishments, enhancing the overall living experience.\\n\\nSunset Apartments boasts an impressive occupancy rate of 92.50%, reflecting its desirability in the competitive New York rental market. The property also includes 60 dedicated parking spaces, a valuable feature in a city where parking can be a challenge.\\n\\nIn terms of condition, Sunset Apartments is well-maintained, thanks to the recent renovations that have modernized the interiors and exteriors. The property is equipped with updated safety features and energy-efficient systems, ensuring a comfortable and secure living environment for its residents.\\n\\nOverall, Sunset Apartments presents a compelling investment opportunity, combining a desirable location, a strong unit mix, and a well-maintained property that meets the needs of today’s renters.\",\n                \"image_url\": null,\n                \"order\": 2,\n                \"updated_at\": \"2026-03-04T00:29:54.738654Z\"\n            },\n            {\n                \"id\": 4,\n                \"section_type\": \"property_highlights\",\n                \"content\": \"**Property Highlights for Sunset Apartments**\\n\\n- **Prime Location**: Situated at 123 Main Street, New York, NY, offering easy access to urban amenities and public transportation.\\n- **Substantial Unit Count**: 48 multifamily units providing diverse living options for residents.\\n- **Spacious Rentable Area**: Total rentable area of 52,000 SF, allowing for comfortable living spaces.\\n- **Modern Renovations**: Recently renovated in 2018, enhancing the property’s appeal and functionality.\\n- **High Occupancy Rate**: Currently at 92.50%, indicating strong demand and stable rental income.\\n- **Ample Parking**: 60 parking spaces available, a significant advantage in a densely populated urban area.\\n- **Established Community**: Built in 1998, the property has a solid reputation and established community presence.\\n- **Investment Potential**: Strong occupancy and recent renovations suggest potential for increased rental rates and property value appreciation.\",\n                \"image_url\": null,\n                \"order\": 3,\n                \"updated_at\": \"2026-03-04T00:29:54.738664Z\"\n            },\n            {\n                \"id\": 5,\n                \"section_type\": \"area_overview\",\n                \"content\": \"**Area Overview: Sunset Apartments**\\n\\n**Location**: 123 Main Street, New York, NY 10001\\n\\n**Neighborhood**: Sunset Apartments is situated in a vibrant and bustling neighborhood of New York City, known for its diverse community and urban amenities. The area is characterized by a mix of residential, commercial, and recreational spaces, making it an attractive location for families, young professionals, and students alike. The proximity to parks, restaurants, cafes, and cultural institutions enhances the neighborhood's appeal, providing residents with a rich urban lifestyle.\\n\\n**Demographics**: The surrounding area boasts a diverse population, with a mix of ethnicities and age groups. The demographic profile indicates a significant number of young professionals and families, contributing to a dynamic community atmosphere. The median household income in the vicinity is above the national average, reflecting the area's desirability and economic stability.\\n\\n**Employment Base**: The employment base in the region is robust, with a variety of sectors represented, including finance, technology, healthcare, and education. The neighborhood benefits from its proximity to Manhattan, which is a major employment hub, providing residents with easy access to numerous job opportunities.\\n\\n**Major Employers**: Key employers in the area include large financial institutions, tech companies, and healthcare providers. Notable organizations such as JPMorgan Chase, Google, and NYU Langone Health have a significant presence nearby, contributing to the local economy and providing ample employment opportunities for residents.\\n\\n**Transportation Access**: Sunset Apartments offers excellent transportation access, with multiple subway lines and bus routes within walking distance. The nearby subway stations provide quick and convenient access to Manhattan and other parts of New York City, making it an ideal location for commuters. Additionally, the area is bike-friendly, with dedicated bike lanes and bike-sharing programs available.\\n\\n**Economic Outlook**: The economic outlook for the neighborhood and the broader New York City region remains positive. With ongoing investments in infrastructure, real estate development, and community initiatives, the area is poised for continued growth. The demand for rental properties, particularly multifamily units like Sunset Apartments, is expected to remain strong, driven by the influx of new residents and the overall economic vitality of the city.\\n\\nIn summary, Sunset Apartments is located in a thriving neighborhood that offers a diverse community, strong employment opportunities, excellent transportation access, and a positive economic outlook, making it an attractive choice for potential residents.\",\n                \"image_url\": null,\n                \"order\": 4,\n                \"updated_at\": \"2026-03-04T00:29:54.738671Z\"\n            },\n            {\n                \"id\": 6,\n                \"section_type\": \"area_highlights\",\n                \"content\": \"**Area Highlights for Sunset Apartments**\\n\\n- **Nearby Amenities:**\\n  - Grocery stores and supermarkets within walking distance\\n  - Variety of restaurants and cafes nearby\\n  - Parks and recreational areas for outdoor activities\\n  - Shopping centers and boutiques in close proximity\\n\\n- **Transit Options:**\\n  - Convenient access to public transportation, including subway and bus lines\\n  - Major roadways nearby for easy commuting\\n  - Bike lanes available for cyclists\\n\\n- **Schools:**\\n  - Proximity to reputable public and private schools\\n  - Access to higher education institutions within a short commute\\n\\n- **Employment Centers:**\\n  - Close to major employment hubs and corporate offices\\n  - Easy access to downtown business districts\\n\\n- **Notable Nearby Developments:**\\n  - Recent residential and commercial developments enhancing the neighborhood\\n  - Ongoing infrastructure improvements in the area\\n  - Planned community projects aimed at increasing local amenities and services\\n\\nThese highlights make Sunset Apartments an attractive option for residents seeking convenience and a vibrant community atmosphere.\",\n                \"image_url\": null,\n                \"order\": 5,\n                \"updated_at\": \"2026-03-04T00:29:54.738679Z\"\n            },\n            {\n                \"id\": 7,\n                \"section_type\": \"market_summary\",\n                \"content\": \"**Market Summary for Sunset Apartments - New York, NY**\\n\\n**Submarket Overview:**\\nThe multifamily rental market in New York City, particularly in the vicinity of Sunset Apartments located at 123 Main Street, is currently experiencing a dynamic phase characterized by moderate occupancy rates and evolving rental trends. \\n\\n**Vacancy Rates:**\\nAs of the latest data, the overall vacancy rate in the submarket stands at approximately 7.5%, reflecting a healthy demand for rental units. The occupancy rate for Sunset Apartments is slightly above this average at 92.5%, indicating a strong performance relative to the broader market.\\n\\n**Average Rents:**\\nThe average rent in the submarket has seen a gradual increase, currently hovering around $3,200 per month for similar multifamily units. Sunset Apartments, with its 48 units and modern amenities post-renovation in 2018, is positioned competitively within this range, attracting tenants looking for quality living spaces.\\n\\n**Rent Growth Trends:**\\nRent growth in the submarket has shown a positive trajectory, with an annual increase of approximately 4% over the past year. This trend is driven by a combination of factors including rising demand for urban living, limited new supply, and the ongoing recovery from the pandemic's impact on the rental market.\\n\\n**New Supply Pipeline:**\\nThe new supply pipeline in the area is relatively constrained, with only a few projects in the planning or construction phases. This limited new inventory is expected to support continued rent growth and maintain occupancy levels as demand remains robust. The anticipated completion of these projects is not expected to significantly alter the competitive landscape in the immediate term.\\n\\n**Overall Demand Drivers:**\\nKey demand drivers for the multifamily market in this submarket include a strong job market, particularly in technology and finance sectors, as well as the ongoing appeal of urban living among young professionals and families. Additionally, the proximity to public transportation, amenities, and vibrant neighborhood features further enhances the attractiveness of Sunset Apartments.\\n\\nIn conclusion, Sunset Apartments is well-positioned within a competitive submarket that is experiencing healthy demand and moderate rent growth. With its favorable occupancy rate and strategic location, it remains an appealing option for prospective tenants in New York City.\",\n                \"image_url\": null,\n                \"order\": 6,\n                \"updated_at\": \"2026-03-04T00:29:54.738687Z\"\n            },\n            {\n                \"id\": 8,\n                \"section_type\": \"financing_summary\",\n                \"content\": \"**Financing Summary for Sunset Apartments**\\n\\n**Property Address:** 123 Main Street, New York, NY 10001  \\n**Property Type:** Multifamily  \\n**Units:** 48  \\n**Rentable Area:** 52,000 SF  \\n**Year Built:** 1998  \\n**Year Renovated:** 2018  \\n**Occupancy Rate:** 92.50%  \\n**Parking Spaces:** 60  \\n\\n**Proposed Financing Terms:**\\n\\n- **Loan Amount:** $5,000,000  \\n- **Loan-to-Value (LTV):** 75%  \\n- **Interest Rate:** 4.25%  \\n- **Amortization Period:** 30 years  \\n- **Debt Service:** $245,000 annually  \\n\\n**Assumption or New Financing Details:**\\n\\nThis financing proposal assumes a new loan to refinance the existing debt on Sunset Apartments, leveraging the current occupancy rate and recent renovations to secure favorable terms. The proposed loan amount reflects a conservative LTV ratio, ensuring that the property maintains a strong equity position. The interest rate is competitive for the current market, and the amortization period allows for manageable monthly payments, enhancing cash flow stability.\\n\\nThe financing structure is designed to support ongoing operational needs and potential future improvements, ensuring that Sunset Apartments remains a desirable living option in the New York market.\",\n                \"image_url\": null,\n                \"order\": 7,\n                \"updated_at\": \"2026-03-04T00:29:54.738694Z\"\n            },\n            {\n                \"id\": 9,\n                \"section_type\": \"financial_analysis\",\n                \"content\": \"### Financial Analysis\\n\\n#### Property Overview\\n**Property Name:** Sunset Apartments  \\n**Address:** 123 Main Street, New York, NY 10001  \\n**Type:** Multifamily  \\n**Units:** 48  \\n**Rentable Area:** 52,000 SF  \\n**Year Built:** 1998  \\n**Year Renovated:** 2018  \\n**Occupancy Rate:** 92.50%  \\n**Parking Spaces:** 60  \\n\\n#### Income Structure\\nThe primary source of income for Sunset Apartments is derived from rental income generated by its 48 units. The current average monthly rent per unit is estimated at $2,500, reflecting the competitive market rates in the New York area. \\n\\n**Total Monthly Rental Income:**\\n- Average Rent per Unit: $2,500\\n- Total Units: 48\\n- Total Monthly Rental Income = $2,500 * 48 = $120,000\\n\\n**Annual Rental Income:**\\n- Total Annual Rental Income = $120,000 * 12 = $1,440,000\\n\\n#### Expense Structure\\nThe operating expenses for Sunset Apartments include property management fees, maintenance costs, property taxes, insurance, utilities, and reserves for capital expenditures. Below is a breakdown of the estimated annual expenses:\\n\\n- **Property Management Fees:** $72,000 (5% of rental income)\\n- **Maintenance Costs:** $50,000\\n- **Property Taxes:** $150,000\\n- **Insurance:** $30,000\\n- **Utilities:** $40,000\\n- **Capital Expenditure Reserves:** $20,000\\n\\n**Total Annual Expenses:**\\n- Total Annual Expenses = $72,000 + $50,000 + $150,000 + $30,000 + $40,000 + $20,000 = $362,000\\n\\n#### Net Operating Income (NOI)\\nThe Net Operating Income (NOI) is calculated by subtracting total annual expenses from total annual rental income.\\n\\n**NOI Calculation:**\\n- NOI = Total Annual Rental Income - Total Annual Expenses\\n- NOI = $1,440,000 - $362,000 = $1,078,000\\n\\n#### Capitalization Rate (Cap Rate)\\nThe capitalization rate is a key metric used to evaluate the potential return on investment for the property. It is calculated by dividing the NOI by the property’s current market value.\\n\\nAssuming the current market value of Sunset Apartments is estimated at $12,000,000:\\n\\n**Cap Rate Calculation:**\\n- Cap Rate = NOI / Current Market Value\\n- Cap Rate = $1,078,000 / $12,000,000 = 0.0898 or 8.98%\\n\\n#### Cash-on-Cash Returns\\nCash-on-cash return measures the annual return made on an investment relative to the amount of cash invested. Assuming an initial cash investment of $3,000,000 (including down payment and closing costs):\\n\\n**Cash-on-Cash Return Calculation:**\\n- Cash-on-Cash Return = Annual Cash Flow / Total Cash Invested\\n- Annual Cash Flow = NOI - Debt Service (Assuming a debt service of $600,000)\\n- Annual Cash Flow = $1,078,000 - $600,000 = $478,000\\n- Cash-on-Cash Return = $478,000 / $3,000,000 = 0.1593 or 15.93%\\n\\n#### Financial Projections and Assumptions\\n- **Occupancy Rate:** Assumed to remain stable at 92.5% based on current performance.\\n- **Rent Growth:** Projected annual rent growth of 3% over the next five years, reflecting market trends.\\n- **Expense Growth:** Anticipated annual increase in operating expenses of 2% due to inflationary pressures.\\n- **Market Value Appreciation:** Expected annual appreciation of property value at 4% based on historical trends in the New York real estate market.\\n\\nThese projections and assumptions provide a framework for evaluating the financial viability of Sunset Apartments and inform potential investment decisions.\",\n                \"image_url\": null,\n                \"order\": 8,\n                \"updated_at\": \"2026-03-04T00:29:54.738702Z\"\n            },\n            {\n                \"id\": 10,\n                \"section_type\": \"sales_comparables\",\n                \"content\": \"### Sales Comparables\\n\\nBelow are recent comparable property sales for multifamily units in the New York City area that can provide insight into the market pricing for Sunset Apartments located at 123 Main Street, New York, NY 10001.\\n\\n| Address                           | Sale Price   | Price per Unit | Cap Rate | Date of Sale   |\\n|-----------------------------------|--------------|----------------|----------|-----------------|\\n| 456 Elm Street, New York, NY 10001 | $12,000,000  | $250,000       | 5.5%     | August 2023     |\\n| 789 Oak Avenue, New York, NY 10001 | $10,500,000  | $220,000       | 6.0%     | July 2023       |\\n| 321 Pine Road, New York, NY 10001  | $15,000,000  | $312,500       | 5.0%     | June 2023       |\\n| 654 Maple Lane, New York, NY 10001  | $11,200,000  | $233,333       | 5.8%     | May 2023        |\\n| 987 Birch Boulevard, New York, NY 10001 | $9,800,000   | $204,167       | 6.2%     | April 2023      |\\n\\n### Market Pricing Summary\\n\\nThe sales comparables indicate a range of sale prices from approximately $9.8 million to $15 million for multifamily properties in the area, with price per unit varying from $204,167 to $312,500. The cap rates range from 5.0% to 6.2%, suggesting a competitive market for multifamily investments. \\n\\nThe average price per unit for these comparables is approximately $224,000, which positions Sunset Apartments favorably given its occupancy rate of 92.5% and recent renovations in 2018. The cap rates suggest that investors are willing to accept lower returns for properties in desirable locations, indicating strong demand for multifamily housing in New York City. Overall, these comps suggest that Sunset Apartments could be valued in the range of $10 million to $12 million, depending on specific market conditions and property performance.\",\n                \"image_url\": null,\n                \"order\": 9,\n                \"updated_at\": \"2026-03-04T00:29:54.738709Z\"\n            },\n            {\n                \"id\": 11,\n                \"section_type\": \"lease_comparables\",\n                \"content\": \"### Lease Comparables\\n\\nThe following lease comparables have been identified in the vicinity of Sunset Apartments, located at 123 Main Street, New York, NY 10001. These properties provide insight into the current rental market and help to establish achievable rents for the Sunset Apartments.\\n\\n| Property Name        | Address                      | Unit Size (SF) | Asking Rent ($/Month) | Achieved Rent ($/Month) | Concessions                |\\n|----------------------|------------------------------|----------------|-----------------------|-------------------------|----------------------------|\\n| Maple Grove Apartments| 456 Elm Street, New York, NY| 550            | $2,800                | $2,750                  | 1 month free               |\\n| Oakwood Residences   | 789 Pine Avenue, New York, NY| 600            | $3,000                | $2,950                  | 2 months free              |\\n| River View Flats     | 321 River Road, New York, NY | 500            | $2,600                | $2,550                  | None                       |\\n| Greenfield Apartments | 654 Green Street, New York, NY| 520           | $2,700                | $2,650                  | 1 month free               |\\n| Hilltop Estates      | 987 Hilltop Drive, New York, NY| 580          | $2,900                | $2,850                  | 1 month free + parking     |\\n\\n### Summary of Lease Comparables\\n\\nThe comparables indicate a range of achievable rents for multifamily units in the area, with asking rents between $2,600 and $3,000 per month. The achieved rents suggest that tenants are willing to pay slightly less than the asking prices, with actual rents typically falling between $2,550 and $2,950 per month. \\n\\nGiven the Sunset Apartments' characteristics, including its recent renovation in 2018 and current occupancy rate of 92.5%, it is reasonable to anticipate achievable rents in the range of $2,600 to $2,900 per month for similar unit sizes. The presence of concessions, such as one or two months of free rent, is common in the market and may be necessary to attract tenants in a competitive environment. \\n\\nOverall, these comparables suggest that Sunset Apartments can position itself competitively within the market while potentially offering concessions to enhance tenant appeal.\",\n                \"image_url\": null,\n                \"order\": 10,\n                \"updated_at\": \"2026-03-04T00:29:54.738715Z\"\n            },\n            {\n                \"id\": 12,\n                \"section_type\": \"area_amenities\",\n                \"content\": \"**Area Amenities for Sunset Apartments**\\n\\n**Nearby Restaurants:**\\n- **The Italian Bistro** - A cozy spot offering authentic Italian cuisine, perfect for a casual dinner or a special occasion.\\n- **Sushi Haven** - A popular sushi bar known for its fresh ingredients and creative rolls, ideal for sushi lovers.\\n- **Green Leaf Café** - A health-conscious café serving organic salads, smoothies, and vegan options, great for a quick lunch or brunch.\\n- **Burger Joint** - A local favorite for gourmet burgers and fries, perfect for a laid-back meal with friends.\\n\\n**Retail:**\\n- **Main Street Shopping Center** - A vibrant shopping destination featuring a variety of shops, from fashion boutiques to home goods stores.\\n- **The Corner Store** - A convenient local shop offering everyday essentials and unique gifts, just a short walk away.\\n\\n**Grocery:**\\n- **Fresh Market Grocery** - A well-stocked grocery store providing a wide selection of fresh produce, meats, and organic products.\\n- **Whole Foods Market** - A premium grocery store known for its high-quality natural and organic foods, catering to health-conscious shoppers.\\n\\n**Entertainment:**\\n- **Sunset Cinema** - A nearby movie theater showcasing the latest films, perfect for a night out with friends or family.\\n- **Live Music Venue** - A local hotspot for live performances, featuring a variety of genres and showcasing both local and touring artists.\\n\\n**Parks:**\\n- **Sunset Park** - A beautiful green space with walking trails, picnic areas, and playgrounds, ideal for outdoor activities and relaxation.\\n- **Riverside Park** - A scenic park along the river, offering stunning views, jogging paths, and recreational facilities.\\n\\n**Recreation:**\\n- **Fitness Center** - A fully equipped gym nearby, offering various fitness classes, personal training, and state-of-the-art equipment.\\n- **Community Sports Complex** - A facility featuring basketball courts, tennis courts, and soccer fields, promoting an active lifestyle for residents.\\n\\n**Lifestyle Amenities:**\\n- **Public Transportation Access** - Convenient access to subway and bus lines, making commuting around the city easy and efficient.\\n- **Cafés and Bakeries** - Numerous local cafés and bakeries nearby, perfect for grabbing a coffee or a sweet treat.\\n- **Cultural Institutions** - Close proximity to museums and galleries, providing residents with opportunities to engage in the local arts and culture scene.\\n\\nThese amenities make Sunset Apartments an attractive option for tenants and buyers looking for a vibrant community with convenient access to dining, shopping, and recreational activities.\",\n                \"image_url\": null,\n                \"order\": 11,\n                \"updated_at\": \"2026-03-04T00:29:54.738722Z\"\n            },\n            {\n                \"id\": 13,\n                \"section_type\": \"sponsorship\",\n                \"content\": \"### Sponsorship\\n\\n**Sponsor Overview:**\\n\\nThe ownership team behind Sunset Apartments is a seasoned group of real estate professionals with extensive experience in multifamily property management and development. The team is led by a partnership of industry veterans who have successfully navigated the complexities of the real estate market for over two decades.\\n\\n**Background and Experience:**\\n\\nThe principal members of the sponsorship team include John Smith and Sarah Johnson, both of whom have a proven track record in acquiring, managing, and repositioning multifamily assets across the Northeast region of the United States. John holds an MBA from Harvard Business School and has previously served as the Vice President of Acquisitions at a leading real estate investment firm, where he was responsible for sourcing and executing over $500 million in multifamily transactions. Sarah, with a background in urban planning and a Master’s degree from Columbia University, has spent the last 15 years focusing on property management and operational efficiencies, ensuring high occupancy rates and tenant satisfaction.\\n\\n**Track Record in Real Estate:**\\n\\nThe sponsorship team has successfully completed numerous transactions, including the acquisition and renovation of over 1,200 multifamily units in the past five years alone. Their most notable project, the Greenview Apartments, was acquired in 2020 and underwent a comprehensive renovation that resulted in a 30% increase in rental income within 18 months. This project exemplifies their ability to enhance property value through strategic improvements and effective management.\\n\\n**Relevant Prior Transactions:**\\n\\n1. **Greenview Apartments** (Acquired in 2020)\\n   - Units: 300\\n   - Location: Boston, MA\\n   - Renovation: Comprehensive interior and exterior upgrades\\n   - Result: 30% increase in rental income within 18 months\\n\\n2. **Riverbend Estates** (Acquired in 2019)\\n   - Units: 150\\n   - Location: Philadelphia, PA\\n   - Renovation: Modernization of amenities and common areas\\n   - Result: Achieved 95% occupancy within the first year post-renovation\\n\\n3. **Maplewood Heights** (Acquired in 2018)\\n   - Units: 200\\n   - Location: Newark, NJ\\n   - Renovation: Energy-efficient upgrades and landscaping improvements\\n   - Result: Reduced operating costs by 20% and increased tenant retention rates\\n\\n**Conclusion:**\\n\\nWith a strong foundation in multifamily real estate, a commitment to excellence, and a history of delivering value to investors and tenants alike, the sponsorship team is well-positioned to successfully manage and enhance the Sunset Apartments property. Their strategic vision and operational expertise will ensure that Sunset Apartments continues to thrive in the competitive New York City rental market.\",\n                \"image_url\": null,\n                \"order\": 12,\n                \"updated_at\": \"2026-03-04T00:29:54.738728Z\"\n            },\n            {\n                \"id\": 14,\n                \"section_type\": \"disclaimer\",\n                \"content\": \"**Disclaimer**\\n\\nThis Offering Memorandum (the \\\"Memorandum\\\") has been prepared solely for informational purposes and is intended for the exclusive use of prospective investors in the Sunset Apartments located at 123 Main Street, New York, NY 10001 (the \\\"Property\\\"). By accepting this Memorandum, the recipient agrees to keep the information contained herein confidential and not to disclose it to any third party without the prior written consent of the owner or the broker.\\n\\nThe information contained in this Memorandum has been obtained from sources deemed reliable; however, no representation or warranty, express or implied, is made by the owner, the broker, or any of their respective affiliates, partners, or representatives as to the accuracy or completeness of such information. All financial projections, estimates, and opinions contained in this Memorandum are based on assumptions and analyses that may not be accurate or complete and are subject to change without notice. Prospective investors should conduct their own independent investigation and analysis of the Property and the information contained herein.\\n\\nThis Memorandum may contain forward-looking statements, including, but not limited to, statements regarding future financial performance, market conditions, and other projections. These statements are based on current expectations and assumptions that are subject to risks and uncertainties. Actual results may differ materially from those anticipated in these forward-looking statements due to various factors, including changes in market conditions, economic factors, and other risks.\\n\\nProspective investors are encouraged to perform their own due diligence and consult with their own advisors regarding the Property and the information contained in this Memorandum. The owner and broker expressly disclaim any liability for any errors or omissions in this Memorandum or for any actions taken or not taken based on the information contained herein. \\n\\nBy accepting this Memorandum, the recipient acknowledges and agrees to the terms of this Disclaimer.\",\n                \"image_url\": null,\n                \"order\": 13,\n                \"updated_at\": \"2026-03-04T00:29:54.738734Z\"\n            }\n        ]\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "update-memorandums",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/memorandums/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "memorandums",
+                ":id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-memorandums",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/memorandums/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "memorandums",
+                ":id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-sections-content",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/memorandums/:id/sections/:sid/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "memorandums",
+                ":id",
+                "sections",
+                ":sid",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                },
+                {
+                  "key": "sid",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "upload-section-image",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/memorandums/:id/sections/:sid/image/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "memorandums",
+                ":id",
+                "sections",
+                ":sid",
+                "image",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                },
+                {
+                  "key": "sid",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-section-image",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/memorandums/:id/sections/:sid/image/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "memorandums",
+                ":id",
+                "sections",
+                ":sid",
+                "image",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                },
+                {
+                  "key": "sid",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "loans & quotes",
+      "item": [
+        {
+          "name": "create-loan-request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"property\": 1,\r\n  \"requested_amount\": \"5000000.00\",\r\n  \"loan_term\": 24,\r\n  \"ltv\": \"75.00\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/loans/requests/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "requests",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "loan-requests-list",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/requests/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "requests",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "loan-request-details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/requests/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "requests",
+                ":id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-loan-request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"Under Review\",\r\n  \"requested_amount\": \"5500000.00\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/loans/requests/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "requests",
+                ":id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-loan-request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/requests/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "requests",
+                ":id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "submit-a-quote",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{lender_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"lender_name\": \"First Capital Lending\",\r\n  \"guarantor\": \"John Smith\",\r\n  \"expires_at\": \"2024-02-15T23:59:00Z\",\r\n  \"loan_amount\": \"4750000.00\",\r\n  \"initial_funding\": \"4000000.00\",\r\n  \"future_funding\": \"750000.00\",\r\n  \"sponsor_equity\": \"1250000.00\",\r\n  \"max_as_is_ltv\": \"72.00\",\r\n  \"max_ltc\": \"80.00\",\r\n  \"max_as_stabilized_ltv\": \"70.00\",\r\n  \"min_as_is_dy\": \"8.50\",\r\n  \"min_stabilized_dy\": \"9.00\",\r\n  \"term\": 24,\r\n  \"interest_rate\": \"7.25\",\r\n  \"amortization\": \"30-year amortization\",\r\n  \"prepayment\": \"3-2-1 step-down\",\r\n  \"origination_fee\": \"1.00\",\r\n  \"capex_reserve\": \"50000.00\",\r\n  \"ff_and_e_reserve\": \"25000.00\",\r\n  \"interest_carry_reserve\": \"100000.00\",\r\n  \"extension_conditions\": \"Two 6-month extensions available at lender's discretion with 0.25% extension fee each.\",\r\n  \"collateral\": \"First lien deed of trust\",\r\n  \"recourse\": \"Non-recourse with standard carve-outs\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/loans/requests/{id}/quotes/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "requests",
+                "{id}",
+                "quotes",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "quotes-list-on-a-loan",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/requests/:id/quotes/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "requests",
+                ":id",
+                "quotes",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "quotes-list (lender)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{lender_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/quotes/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "quotes",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "quote-details",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{access_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/quotes/:quote_id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "quotes",
+                ":quote_id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "quote_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-a-quote",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{lender_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"interest_rate\": \"7.10\",\r\n  \"loan_amount\": \"4800000.00\",\r\n  \"expires_at\": \"2024-02-28T23:59:00Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/loans/quotes/:quote_id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "quotes",
+                ":quote_id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "quote_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "accept-a-quote",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/quotes/:quote_id/accept/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "quotes",
+                ":quote_id",
+                "accept",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "quote_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "decline-a-quote",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/loans/quotes/:quote_id/decline/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "loans",
+                "quotes",
+                ":quote_id",
+                "decline",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "quote_id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "event": [
@@ -2964,6 +3959,14 @@
     },
     {
       "key": "access_token",
+      "value": ""
+    },
+    {
+      "key": "sponsor_jwt",
+      "value": ""
+    },
+    {
+      "key": "lender_jwt",
       "value": ""
     }
   ]
