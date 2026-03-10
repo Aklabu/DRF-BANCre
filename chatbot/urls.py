@@ -1,17 +1,22 @@
 from django.urls import path
 from .views import (
-    ConversationListCreateView,
-    ConversationDeleteView,
-    MessageListCreateView,
+    ChatView,
+    ConversationListView,
+    ConversationDetailView,
 )
 
 app_name = 'chatbot'
 
 urlpatterns = [
-    # Conversation management
-    path('conversations/',         ConversationListCreateView.as_view(), name='conversation-list-create'),
-    path('conversations/<int:pk>/', ConversationDeleteView.as_view(),    name='conversation-delete'),
+    # Core chat — auto-creates or continues a conversation
+    path('chat/', ChatView.as_view(), name='chat'),
 
-    # Message history and sending
-    path('conversations/<int:pk>/messages/', MessageListCreateView.as_view(), name='message-list-create'),
+    # Conversation history list
+    path('conversations/', ConversationListView.as_view(), name='conversation-list'),
+
+    # Message history for a conversation
+    path('conversations/<int:pk>/messages/', ConversationDetailView.as_view(), name='conversation-messages'),
+
+    # Delete a conversation (and all its messages)
+    path('conversations/<int:pk>/',          ConversationDetailView.as_view(), name='conversation-delete'),
 ]

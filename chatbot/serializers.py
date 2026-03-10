@@ -23,5 +23,6 @@ class ConversationDetailSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'created_at', 'updated_at', 'messages']
 
 
-class SendMessageSerializer(serializers.Serializer):
-    message = serializers.CharField(allow_blank=False, trim_whitespace=True)
+class ChatSerializer(serializers.Serializer):
+    message         = serializers.CharField(allow_blank=False, trim_whitespace=True)
+    conversation_id = serializers.IntegerField(required=False, allow_null=True)
