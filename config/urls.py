@@ -26,6 +26,7 @@ urlpatterns = [
     path('api/memorandums/', include('memorandums.urls')),
     path('api/loans/', include('loans.urls')),
     path('api/chatbot/', include('chatbot.urls')),
+    path('api/notifications/', include('notifications.urls')),
 ]
 
 # Serve media files in development

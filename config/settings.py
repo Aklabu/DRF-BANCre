@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'memorandums',
     'loans',
     'chatbot',
+    'notifications',
 ]
 
 MIDDLEWARE = [
