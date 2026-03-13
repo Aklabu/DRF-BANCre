@@ -140,6 +140,10 @@ class ChangePasswordSerializer(serializers.Serializer):
         return data
 
 
+class TokenRefreshSerializer(serializers.Serializer):
+    refresh_token = serializers.CharField()
+
+
 class LogoutSerializer(serializers.Serializer):
     refresh_token = serializers.CharField()
 
