@@ -2262,6 +2262,113 @@
               "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Profile updated successfully\",\n    \"timestamp\": \"2026-03-09T20:43:28.012640+00:00\",\n    \"data\": {\n        \"profile\": {\n            \"first_name\": \"Jonathan\",\n            \"last_name\": \"Doe\",\n            \"email\": \"jane@example.com\",\n            \"phone\": \"+1999888777\",\n            \"profile_photo\": \"/media/profile_photos/images.webp\",\n            \"company_information\": {\n                \"company_name\": \"SmithCapitalLLC\",\n                \"position\": \"CEO\",\n                \"street_address\": null,\n                \"city\": \"Dallas\",\n                \"state\": \"TX\",\n                \"zip_code\": \"75201\"\n            }\n        }\n    },\n    \"errors\": null\n}"
             }
           ]
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3MzQyNTIzNiwiaWF0IjoxNzczNDIxNjM2LCJqdGkiOiJjNTk3MzM4M2FhMmM0NjAzYTk0MDVjNjNmOTNlMDczZCIsInVzZXJfaWQiOiIzMyJ9.yq2ZkGycxAZAidhs9yBF-5oQc0CTRNhgr2TLvPymkWs\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/accounts/token/refresh/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "accounts",
+                "token",
+                "refresh",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3MzQyNTIzNiwiaWF0IjoxNzczNDIxNjM2LCJqdGkiOiJjNTk3MzM4M2FhMmM0NjAzYTk0MDVjNjNmOTNlMDczZCIsInVzZXJfaWQiOiIzMyJ9.yq2ZkGycxAZAidhs9yBF-5oQc0CTRNhgr2TLvPymkWs\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/accounts/token/refresh/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "accounts",
+                    "token",
+                    "refresh",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 17:11:05 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "388"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Token refreshed successfully\",\n    \"timestamp\": \"2026-03-13T17:11:05.855043+00:00\",\n    \"data\": {\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzczNTA4MjY1LCJpYXQiOjE3NzM0MjE4NjUsImp0aSI6Ijg2NzRiYjI5MDE5OTRlZTE5ZmMwYzJiM2M0NjBiZjQzIiwidXNlcl9pZCI6IjMzIn0.YE8v3HkPUxN1AFiLwr027wgz-e9UywqXpTKouLJ8fbQ\"\n    },\n    \"errors\": null\n}"
+            }
+          ]
         }
       ]
     },
