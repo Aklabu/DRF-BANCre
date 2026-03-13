@@ -3,7 +3,7 @@ from django.conf import settings
 
 
 def _send(subject: str, message: str, recipient_email: str) -> None:
-    # fire-and-forget email sending, with silent failure to avoid disrupting user experience
+    # fire-and-forget email sending, with silent failure to avoid disrupting user experience.
     try:
         send_mail(
             subject,
@@ -16,8 +16,23 @@ def _send(subject: str, message: str, recipient_email: str) -> None:
         pass
 
 
+def _quote_emails_enabled(user) -> bool:
+    # Check if the user has enabled quote-related email notifications in their preferences.
+    # Returns False if the preference record doesn't exist or if quote_emails_enabled is False.
+    try:
+        from notifications.models import NotificationPreference
+        pref = NotificationPreference.objects.filter(user=user).first()
+        return pref is not None and pref.quote_emails_enabled
+    except Exception:
+        return False
+
+
 def notify_sponsor_new_quote(loan_request, quote) -> None:
     # Notify the sponsor that a new quote has been submitted on their loan request.
+    # Skipped if the sponsor has not enabled quote email notifications.
+    if not _quote_emails_enabled(loan_request.sponsor):
+        return
+
     subject = f'New Quote Received — {loan_request.property.property_name}'
     message = (
         f'Hello {loan_request.sponsor.first_name},\n\n'
@@ -33,6 +48,10 @@ def notify_sponsor_new_quote(loan_request, quote) -> None:
 
 def notify_lender_quote_accepted(quote) -> None:
     # Notify the lender that their quote has been accepted.
+    # Skipped if the lender has not enabled quote email notifications.
+    if not _quote_emails_enabled(quote.lender):
+        return
+
     subject = f'Your Quote Has Been Accepted — {quote.loan_request.property.property_name}'
     message = (
         f'Hello {quote.lender_name},\n\n'
@@ -44,7 +63,11 @@ def notify_lender_quote_accepted(quote) -> None:
 
 
 def notify_lender_quote_declined(quote) -> None:
-   # Notify the lender that their quote has been declined.
+    # Notify the lender that their quote has been declined.
+    # Skipped if the lender has not enabled quote email notifications.
+    if not _quote_emails_enabled(quote.lender):
+        return
+
     subject = f'Your Quote Has Been Declined — {quote.loan_request.property.property_name}'
     message = (
         f'Hello {quote.lender_name},\n\n'
