@@ -3,8 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
 from utils.response import CustomResponse
-from .models import Notification
-from .serializers import NotificationSerializer
+from .models import Notification, NotificationPreference
+from .serializers import NotificationSerializer, NotificationPreferenceSerializer
 from .permissions import IsRecipient
 
 
@@ -102,4 +102,36 @@ class ClearAllNotificationsView(APIView):
         return CustomResponse.success(
             message=f'{deleted_count} notification(s) cleared.',
             data={'deleted_count': deleted_count},
+        )
+    
+
+class NotificationPreferenceView(APIView):
+    # manage user notification preferences (currently just quote-related email notifications)
+    permission_classes = [IsAuthenticated]
+ 
+    def _get_or_create_preference(self, user):
+        preference, _ = NotificationPreference.objects.get_or_create(user=user)
+        return preference
+ 
+    def get(self, request):
+        preference = self._get_or_create_preference(request.user)
+        serializer = NotificationPreferenceSerializer(preference)
+        return CustomResponse.success(
+            message='Notification preference retrieved successfully.',
+            data=serializer.data,
+        )
+ 
+    def patch(self, request):
+        preference = self._get_or_create_preference(request.user)
+        serializer = NotificationPreferenceSerializer(preference, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return CustomResponse.success(
+                message='Notification preference updated successfully.',
+                data=serializer.data,
+            )
+        return CustomResponse.error(
+            message='Failed to update notification preference.',
+            errors=serializer.errors,
+            status_code=400,
         )
