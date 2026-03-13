@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Notification
+from .models import Notification, NotificationPreference
 
 
 # Custom admin action — bulk mark selected notifications as read
@@ -37,3 +37,12 @@ class NotificationAdmin(admin.ModelAdmin):
             'fields': ('created_at',),
         }),
     )
+
+
+@admin.register(NotificationPreference)
+class NotificationPreferenceAdmin(admin.ModelAdmin):
+    list_display    = ['user', 'quote_emails_enabled', 'updated_at']
+    list_filter     = ['quote_emails_enabled']
+    search_fields   = ['user__email']
+    ordering        = ['user__email']
+    readonly_fields = ['updated_at']
