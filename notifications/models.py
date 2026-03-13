@@ -23,7 +23,6 @@ class Notification(models.Model):
         (MANUAL,               'Manual'),
     ]
 
-    # The user who receives this notification
     recipient         = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -37,9 +36,9 @@ class Notification(models.Model):
 
     # Plain integer references — intentionally not ForeignKeys to avoid cascade deletion
     # and to keep the notifications app decoupled from other apps
-    memorandum_id    = models.IntegerField(null=True, blank=True)
-    loan_request_id  = models.IntegerField(null=True, blank=True)
-    quote_id         = models.IntegerField(null=True, blank=True)
+    memorandum_id   = models.IntegerField(null=True, blank=True)
+    loan_request_id = models.IntegerField(null=True, blank=True)
+    quote_id        = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return f'[{self.notification_type}] {self.recipient.email} — {self.title}'
@@ -48,3 +47,24 @@ class Notification(models.Model):
         verbose_name        = 'Notification'
         verbose_name_plural = 'Notifications'
         ordering            = ['-created_at']
+
+
+class NotificationPreference(models.Model):
+    # Each user has one NotificationPreference record to manage their notification settings
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='notification_preference',
+    )
+    quote_emails_enabled = models.BooleanField(
+        default=False,
+        help_text='When enabled, the user receives emails for loan quote updates (new quote, accepted, declined).',
+    )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'NotificationPreference — {self.user.email} (quote emails: {self.quote_emails_enabled})'
+
+    class Meta:
+        verbose_name        = 'Notification Preference'
+        verbose_name_plural = 'Notification Preferences'
