@@ -4,7 +4,7 @@ from .views import (
     LoginView, VerifyLogin2FAView, ResendLogin2FAOTPView,
     Toggle2FAView, ForgotPasswordView, ResendForgotPasswordOTPView,
     VerifyForgotPasswordOTPView, ResetPasswordView,
-    ChangePasswordView, LogoutView, ProfileView
+    ChangePasswordView, LogoutView, ProfileView, TokenRefreshView
 )
 
 app_name = 'accounts'
@@ -31,6 +31,7 @@ urlpatterns = [
     
     # Change Password & Logout
     path('change-password/', ChangePasswordView.as_view(), name='change-password'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token-refresh'),
     path('logout/', LogoutView.as_view(), name='logout'),
     
     # Profile
