@@ -6,6 +6,7 @@ from .views import (
     MarkAllAsReadView,
     DeleteNotificationView,
     ClearAllNotificationsView,
+    NotificationPreferenceView,
 )
 
 app_name = 'notifications'
@@ -24,4 +25,7 @@ urlpatterns = [
     # Single notification operations
     path('<int:pk>/read/', MarkAsReadView.as_view(),        name='mark-read'),
     path('<int:pk>/',      DeleteNotificationView.as_view(), name='delete'),
+
+    # Email preference toggle for quote-related notifications
+    path('preferences/', NotificationPreferenceView.as_view(), name='notification-preferences'),
 ]
