@@ -11,7 +11,7 @@ from .serializers import (
     SignupSerializer, LoginSerializer, VerifyOTPSerializer,
     ResendOTPSerializer, Toggle2FASerializer, ForgotPasswordSerializer,
     ResetPasswordSerializer, ChangePasswordSerializer, LogoutSerializer,
-    UserProfileSerializer, UpdateProfileSerializer
+    UserProfileSerializer, UpdateProfileSerializer, TokenRefreshSerializer
 )
 from .utils import create_otp, verify_otp
 from utils.response import CustomResponse
@@ -502,6 +502,34 @@ class ChangePasswordView(APIView):
             message="Password updated successfully.",
             status_code=status.HTTP_200_OK
         )
+
+
+class TokenRefreshView(APIView):
+    # View to obtain a new access token using a valid refresh token
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = TokenRefreshSerializer(data=request.data)
+
+        if not serializer.is_valid():
+            return CustomResponse.error(
+                message="Validation failed",
+                status_code=status.HTTP_400_BAD_REQUEST,
+                errors=serializer.errors
+            )
+
+        try:
+            refresh = RefreshToken(serializer.validated_data['refresh_token'])
+            return CustomResponse.success(
+                message="Token refreshed successfully",
+                data={"access": str(refresh.access_token)},
+                status_code=status.HTTP_200_OK
+            )
+        except Exception:
+            return CustomResponse.error(
+                message="Invalid or expired refresh token",
+                status_code=status.HTTP_401_UNAUTHORIZED
+            )
 
 
 class LogoutView(APIView):
