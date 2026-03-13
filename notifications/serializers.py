@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Notification
+from .models import Notification, NotificationPreference
 
 
 class NotificationSerializer(serializers.ModelSerializer):
@@ -13,9 +13,15 @@ class NotificationSerializer(serializers.ModelSerializer):
             'message',
             'is_read',
             'created_at',
-            # Reference IDs for frontend deep linking
             'memorandum_id',
             'loan_request_id',
             'quote_id',
         ]
         read_only_fields = fields
+
+
+class NotificationPreferenceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model  = NotificationPreference
+        fields = ['quote_emails_enabled', 'updated_at']
+        read_only_fields = ['updated_at']
