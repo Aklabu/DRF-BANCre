@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'loans',
     'chatbot',
     'notifications',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
