@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 import environ
 import os
 
@@ -42,6 +44,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
 # Application definition
 INSTALLED_APPS = [
+    'unfold',  # Unfold Admin Customization
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -208,3 +211,62 @@ CELERY_ACCEPT_CONTENT    = ['json']
 CELERY_TASK_SERIALIZER   = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE          = 'UTC'
+
+
+# Unfold admin customization
+UNFOLD = {
+    "SITE_TITLE": "BANCre Admin",
+    "SITE_HEADER": "BANCre",
+    "SITE_SUBHEADER": "Commercial Real Estate Financing",
+    "SHOW_BACK_BUTTON": True,
+    "SIDEBAR": {
+        "show_search": True,
+        "navigation": [
+            {
+                "title": _("Users"),
+                "separator": True,
+                "items": [
+                    {"title": _("Users"),                    "icon": "person",         "link": reverse_lazy("admin:accounts_customuser_changelist")},
+                    {"title": _("OTPs"),                     "icon": "lock",           "link": reverse_lazy("admin:accounts_otp_changelist")},
+                ],
+            },
+            {
+                "title": _("Properties"),
+                "separator": True,
+                "items": [
+                    {"title": _("Properties"),               "icon": "apartment",      "link": reverse_lazy("admin:properties_property_changelist")},
+                ],
+            },
+            {
+                "title": _("Memorandums"),
+                "separator": True,
+                "items": [
+                    {"title": _("Memorandums"),              "icon": "description",    "link": reverse_lazy("admin:memorandums_memorandum_changelist")},
+                ],
+            },
+            {
+                "title": _("Loans"),
+                "separator": True,
+                "items": [
+                    {"title": _("Loan Requests"),            "icon": "request_quote",  "link": reverse_lazy("admin:loans_loanrequest_changelist")},
+                    {"title": _("Loan Quotes"),              "icon": "paid",           "link": reverse_lazy("admin:loans_loanquote_changelist")},
+                ],
+            },
+            {
+                "title": _("Chatbot"),
+                "separator": True,
+                "items": [
+                    {"title": _("Conversations"),            "icon": "chat",           "link": reverse_lazy("admin:chatbot_conversation_changelist")},
+                ],
+            },
+            {
+                "title": _("Notifications"),
+                "separator": True,
+                "items": [
+                    {"title": _("Notifications"),            "icon": "notifications",  "link": reverse_lazy("admin:notifications_notification_changelist")},
+                    {"title": _("Preferences"),              "icon": "tune",           "link": reverse_lazy("admin:notifications_notificationpreference_changelist")},
+                ],
+            },
+        ],
+    },
+}
