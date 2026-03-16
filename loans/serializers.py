@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import LoanRequest, LoanQuote
 
 
-# Loan request serializers
 class LoanRequestCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model  = LoanRequest
@@ -15,42 +14,54 @@ class LoanRequestCreateSerializer(serializers.ModelSerializer):
         return value
 
 
-# List and Detail serializers for loan requests
 class LoanRequestListSerializer(serializers.ModelSerializer):
-    property_name    = serializers.CharField(source='property.property_name',    read_only=True)
-    property_address = serializers.CharField(source='property.property_address', read_only=True)
-    property_type    = serializers.CharField(source='property.property_type',    read_only=True)
-    occupancy        = serializers.DecimalField(source='property.occupancy', max_digits=5, decimal_places=2, read_only=True)
-    year_built       = serializers.IntegerField(source='property.year_built',    read_only=True)
+    property_name      = serializers.CharField(source='property.property_name',    read_only=True)
+    property_address   = serializers.CharField(source='property.property_address', read_only=True)
+    property_type      = serializers.CharField(source='property.property_type',    read_only=True)
+    occupancy          = serializers.DecimalField(source='property.occupancy', max_digits=5, decimal_places=2, read_only=True)
+    year_built         = serializers.IntegerField(source='property.year_built',    read_only=True)
+    property_image_url = serializers.SerializerMethodField()
 
     class Meta:
         model  = LoanRequest
         fields = [
             'id', 'property', 'property_name', 'property_address',
-            'property_type', 'occupancy', 'year_built',
+            'property_type', 'occupancy', 'year_built', 'property_image_url',
             'requested_amount', 'loan_term', 'ltv', 'status', 'created_at',
         ]
 
+    def get_property_image_url(self, obj):
+        request = self.context.get('request')
+        if obj.property.property_image and request:
+            return request.build_absolute_uri(obj.property.property_image.url)
+        return None
 
-# Detail serializer includes memorandum and document links
+
 class LoanRequestDetailSerializer(serializers.ModelSerializer):
-    property_name    = serializers.CharField(source='property.property_name',    read_only=True)
-    property_address = serializers.CharField(source='property.property_address', read_only=True)
-    property_type    = serializers.CharField(source='property.property_type',    read_only=True)
-    occupancy        = serializers.DecimalField(source='property.occupancy', max_digits=5, decimal_places=2, read_only=True)
-    year_built       = serializers.IntegerField(source='property.year_built',    read_only=True)
-    memorandum_links = serializers.SerializerMethodField()
-    document_links   = serializers.SerializerMethodField()
+    property_name      = serializers.CharField(source='property.property_name',    read_only=True)
+    property_address   = serializers.CharField(source='property.property_address', read_only=True)
+    property_type      = serializers.CharField(source='property.property_type',    read_only=True)
+    occupancy          = serializers.DecimalField(source='property.occupancy', max_digits=5, decimal_places=2, read_only=True)
+    year_built         = serializers.IntegerField(source='property.year_built',    read_only=True)
+    property_image_url = serializers.SerializerMethodField()
+    memorandum_links   = serializers.SerializerMethodField()
+    document_links     = serializers.SerializerMethodField()
 
     class Meta:
         model  = LoanRequest
         fields = [
             'id', 'property', 'property_name', 'property_address',
-            'property_type', 'occupancy', 'year_built',
+            'property_type', 'occupancy', 'year_built', 'property_image_url',
             'requested_amount', 'loan_term', 'ltv', 'status',
             'created_at', 'updated_at',
             'memorandum_links', 'document_links',
         ]
+
+    def get_property_image_url(self, obj):
+        request = self.context.get('request')
+        if obj.property.property_image and request:
+            return request.build_absolute_uri(obj.property.property_image.url)
+        return None
 
     def get_memorandum_links(self, obj):
         request = self.context.get('request')
@@ -80,7 +91,6 @@ class LoanRequestDetailSerializer(serializers.ModelSerializer):
         ]
 
 
-# Update a loan request - only allow changing amount, term, ltv, and status
 class LoanRequestUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model  = LoanRequest
@@ -94,20 +104,17 @@ class LoanRequestUpdateSerializer(serializers.ModelSerializer):
 
 
 def _compute_dscr(quote):
-    """
-    DSCR = NOI / Annual Debt Service
-    NOI  = loan_amount * min_as_is_dy / 100   (proxy using debt yield)
-    Annual Debt Service = loan_amount * interest_rate / 100
-    Returns None if interest_rate is zero or missing.
-    """
+    # DSCR = NOI / Annual Debt Service
+    # NOI = loan_amount * min_as_is_dy / 100  (proxy using debt yield)
+    # Annual Debt Service = loan_amount * interest_rate / 100
     try:
         loan_amount   = float(quote.loan_amount)
         interest_rate = float(quote.interest_rate)
         min_as_is_dy  = float(quote.min_as_is_dy)
         if interest_rate == 0:
             return None
-        noi                  = loan_amount * (min_as_is_dy / 100)
-        annual_debt_service  = loan_amount * (interest_rate / 100)
+        noi                 = loan_amount * (min_as_is_dy / 100)
+        annual_debt_service = loan_amount * (interest_rate / 100)
         return round(noi / annual_debt_service, 2)
     except (TypeError, ZeroDivisionError):
         return None
@@ -170,25 +177,32 @@ class LoanQuoteUpdateSerializer(serializers.ModelSerializer):
         return data
 
 
-# Serializers for dashboard cards with comparison fields
 class LenderDashboardRequestSerializer(serializers.ModelSerializer):
-    """Lightweight loan request card for lender dashboard."""
-    property_name    = serializers.CharField(source='property.property_name',    read_only=True)
-    property_address = serializers.CharField(source='property.property_address', read_only=True)
-    property_type    = serializers.CharField(source='property.property_type',    read_only=True)
-    occupancy        = serializers.DecimalField(source='property.occupancy', max_digits=5, decimal_places=2, read_only=True)
-    year_built       = serializers.IntegerField(source='property.year_built',    read_only=True)
+    # lightweight loan request card for lender dashboard
+    property_name      = serializers.CharField(source='property.property_name',    read_only=True)
+    property_address   = serializers.CharField(source='property.property_address', read_only=True)
+    property_type      = serializers.CharField(source='property.property_type',    read_only=True)
+    occupancy          = serializers.DecimalField(source='property.occupancy', max_digits=5, decimal_places=2, read_only=True)
+    year_built         = serializers.IntegerField(source='property.year_built',    read_only=True)
+    property_image_url = serializers.SerializerMethodField()
 
     class Meta:
         model  = LoanRequest
         fields = [
             'id', 'property_name', 'property_address', 'property_type',
-            'occupancy', 'year_built', 'requested_amount', 'loan_term', 'ltv',
+            'occupancy', 'year_built', 'property_image_url',
+            'requested_amount', 'loan_term', 'ltv',
         ]
+
+    def get_property_image_url(self, obj):
+        request = self.context.get('request')
+        if obj.property.property_image and request:
+            return request.build_absolute_uri(obj.property.property_image.url)
+        return None
 
 
 class SponsorQuoteCardSerializer(serializers.ModelSerializer):
-    # Lightweight quote card for sponsor dashboard with DSCR comparison
+    # lightweight quote card for sponsor dashboard with DSCR comparison
     dscr = serializers.SerializerMethodField()
 
     class Meta:

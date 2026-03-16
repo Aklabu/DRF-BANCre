@@ -17,6 +17,19 @@ class PropertyAdmin(ModelAdmin):
     readonly_fields = ['created_at', 'updated_at']
     inlines         = [PropertyDocumentInline]
 
+    fieldsets = (
+        ('Location', {'fields': ('latitude', 'longitude')}),
+        ('Property Details', {
+            'fields': (
+                'property_name', 'property_address', 'property_type',
+                'number_of_units', 'rentable_area', 'year_built',
+                'year_renovated', 'occupancy', 'parking_spaces',
+                'property_image',
+            ),
+        }),
+        ('Ownership', {'fields': ('sponsor', 'created_at', 'updated_at')}),
+    )
+
 
 @admin.register(PropertyDocument)
 class PropertyDocumentAdmin(ModelAdmin):

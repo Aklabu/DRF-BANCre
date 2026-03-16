@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Memorandum, MemorandumSection
 
 
-# Serializers for Memorandum and its sections, used in API endpoints
 class MemorandumSectionSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
 
@@ -22,19 +21,13 @@ class MemorandumSectionSerializer(serializers.ModelSerializer):
         return None
 
 
-# Create and update serializers for Memorandum and its sections, with validation logic
 class MemorandumSectionUpdateSerializer(serializers.ModelSerializer):
-    """Used for PATCH /sections/{section_id}/ — only content is updatable here."""
-
     class Meta:
         model  = MemorandumSection
         fields = ['content']
 
 
-# Upload image for a section, with validation to ensure only allowed types are uploaded
 class SectionImageSerializer(serializers.ModelSerializer):
-    """Used for POST /sections/{section_id}/image/"""
-
     class Meta:
         model  = MemorandumSection
         fields = ['image']
@@ -49,42 +42,50 @@ class SectionImageSerializer(serializers.ModelSerializer):
         return value
 
 
-# Main serializers for Memorandum list and detail views, with nested sections and property name
 class MemorandumListSerializer(serializers.ModelSerializer):
-    property_name = serializers.CharField(source='property.property_name', read_only=True)
+    property_name      = serializers.CharField(source='property.property_name', read_only=True)
+    property_image_url = serializers.SerializerMethodField()
 
     class Meta:
         model  = Memorandum
         fields = [
-            'id', 'title', 'property', 'property_name',
+            'id', 'title', 'property', 'property_name', 'property_image_url',
             'status', 'mode', 'created_at',
         ]
 
+    def get_property_image_url(self, obj):
+        request = self.context.get('request')
+        if obj.property.property_image and request:
+            return request.build_absolute_uri(obj.property.property_image.url)
+        return None
 
-# Detail serializer includes all sections and property name, but sections are read-only here
+
 class MemorandumDetailSerializer(serializers.ModelSerializer):
-    sections      = MemorandumSectionSerializer(many=True, read_only=True)
-    property_name = serializers.CharField(source='property.property_name', read_only=True)
+    sections           = MemorandumSectionSerializer(many=True, read_only=True)
+    property_name      = serializers.CharField(source='property.property_name', read_only=True)
+    property_image_url = serializers.SerializerMethodField()
 
     class Meta:
         model  = Memorandum
         fields = [
-            'id', 'title', 'property', 'property_name',
+            'id', 'title', 'property', 'property_name', 'property_image_url',
             'status', 'mode', 'created_at', 'updated_at', 'sections',
         ]
         read_only_fields = ['id', 'property', 'created_at', 'updated_at', 'sections']
 
+    def get_property_image_url(self, obj):
+        request = self.context.get('request')
+        if obj.property.property_image and request:
+            return request.build_absolute_uri(obj.property.property_image.url)
+        return None
 
-# Allow updating only title, status, and mode of the memorandum
+
 class MemorandumUpdateSerializer(serializers.ModelSerializer):
-    """Used for PATCH /memorandums/{id}/ — title, status, mode only."""
-
     class Meta:
         model  = Memorandum
         fields = ['title', 'status', 'mode']
 
     def validate_status(self, value):
-        # Don't allow manually setting status back to Generating or Failed
         locked = {'Generating', 'Failed'}
         if value in locked:
             raise serializers.ValidationError(
@@ -93,6 +94,5 @@ class MemorandumUpdateSerializer(serializers.ModelSerializer):
         return value
 
 
-# generating new memorandum based on property data
 class GenerateMemorandumSerializer(serializers.Serializer):
     property_id = serializers.IntegerField()

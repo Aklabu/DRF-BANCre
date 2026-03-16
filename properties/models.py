@@ -19,6 +19,9 @@ class Property(models.Model):
     occupancy = models.DecimalField(max_digits=5, decimal_places=2)
     parking_spaces = models.IntegerField()
 
+    # cover image for the property
+    property_image = models.ImageField(upload_to='properties/images/', null=True, blank=True)
+
     # Ownership & meta
     sponsor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='properties')
     created_at = models.DateTimeField(auto_now_add=True)
