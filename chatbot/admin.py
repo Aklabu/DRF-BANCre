@@ -14,10 +14,12 @@ class MessageInline(TabularInline):
 
 @admin.register(Conversation)
 class ConversationAdmin(ModelAdmin):
-    list_display    = ['id', 'user', 'title', 'created_at', 'updated_at']
-    search_fields   = ['user__email', 'title']
-    readonly_fields = ['created_at', 'updated_at']
-    inlines         = [MessageInline]
+    list_display       = ['id', 'user', 'title', 'created_at', 'updated_at']
+    # make user column clickable
+    list_display_links = ['user']
+    search_fields      = ['user__email', 'title']
+    readonly_fields    = ['created_at', 'updated_at']
+    inlines            = [MessageInline]
 
 
 @admin.register(Message)

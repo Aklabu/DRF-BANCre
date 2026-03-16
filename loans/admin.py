@@ -13,16 +13,20 @@ class LoanQuoteInline(TabularInline):
 
 @admin.register(LoanRequest)
 class LoanRequestAdmin(ModelAdmin):
-    list_display    = ['id', 'property', 'sponsor', 'requested_amount', 'loan_term', 'ltv', 'status', 'created_at']
-    list_filter     = ['status']
-    search_fields   = ['property__property_name', 'sponsor__email']
-    readonly_fields = ['created_at', 'updated_at']
-    inlines         = [LoanQuoteInline]
+    list_display       = ['id', 'property', 'sponsor', 'requested_amount', 'loan_term', 'ltv', 'status', 'created_at']
+    # make property column clickable
+    list_display_links = ['property']
+    list_filter        = ['status']
+    search_fields      = ['property__property_name', 'sponsor__email']
+    readonly_fields    = ['created_at', 'updated_at']
+    inlines            = [LoanQuoteInline]
 
 
 @admin.register(LoanQuote)
 class LoanQuoteAdmin(ModelAdmin):
-    list_display    = ['id', 'lender_name', 'loan_request', 'loan_amount', 'interest_rate', 'status', 'submitted_at']
-    list_filter     = ['status']
-    search_fields   = ['lender_name', 'lender__email']
-    readonly_fields = ['submitted_at', 'updated_at']
+    list_display       = ['id', 'lender_name', 'loan_request', 'loan_amount', 'interest_rate', 'status', 'submitted_at']
+    # make lender_name column clickable
+    list_display_links = ['lender_name']
+    list_filter        = ['status']
+    search_fields      = ['lender_name', 'lender__email']
+    readonly_fields    = ['submitted_at', 'updated_at']
