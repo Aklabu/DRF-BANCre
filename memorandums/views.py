@@ -20,7 +20,7 @@ from .permissions import IsSponsor, IsMemorandumOwner
 from .tasks import generate_memorandum_task
 
 
-# Helper functions to fetch memorandum and section
+# helper to fetch memorandum and check ownership
 def _get_memorandum(request, pk) -> tuple:
     memorandum = get_object_or_404(Memorandum, pk=pk)
     if not IsMemorandumOwner().has_object_permission(request, None, memorandum):
@@ -31,14 +31,12 @@ def _get_memorandum(request, pk) -> tuple:
     return memorandum, None
 
 
-# Helper function to fetch a section that belongs to a memorandum
+# helper to fetch a section that belongs to a memorandum
 def _get_section(memorandum, section_id) -> tuple:
-    # Ensure the section belongs to this memorandum
     section = get_object_or_404(MemorandumSection, pk=section_id, memorandum=memorandum)
     return section, None
 
 
-# generate memorandum based on property data, with sections
 class GenerateMemorandumView(APIView):
     permission_classes = [IsAuthenticated, IsSponsor]
 
@@ -54,14 +52,13 @@ class GenerateMemorandumView(APIView):
         property_id = serializer.validated_data['property_id']
         prop = get_object_or_404(Property, pk=property_id)
 
-        # Ensure the sponsor owns this property
+        # ensure the sponsor owns this property
         if prop.sponsor != request.user:
             return CustomResponse.error(
                 message='You do not have permission to generate a memorandum for this property.',
                 status_code=403,
             )
 
-        # Create the memorandum record immediately
         memorandum = Memorandum.objects.create(
             property=prop,
             sponsor=request.user,
@@ -70,7 +67,6 @@ class GenerateMemorandumView(APIView):
             mode='Editor',
         )
 
-        # Dispatch the background task
         generate_memorandum_task.delay(memorandum.id)
 
         return CustomResponse.success(
@@ -80,8 +76,8 @@ class GenerateMemorandumView(APIView):
         )
 
 
-# list and detail views for memorandum
 class MemorandumListView(APIView):
+    # sponsor only — list their own memorandums
     permission_classes = [IsAuthenticated, IsSponsor]
 
     def get(self, request):
@@ -93,14 +89,18 @@ class MemorandumListView(APIView):
         )
 
 
-# detail view with update and delete options for memorandum
 class MemorandumDetailView(APIView):
-    permission_classes = [IsAuthenticated, IsSponsor]
+
+    def get_permissions(self):
+        # GET is open to any authenticated user (sponsors and lenders)
+        # PATCH and DELETE are restricted to sponsors only
+        if self.request.method == 'GET':
+            return [IsAuthenticated()]
+        return [IsAuthenticated(), IsSponsor()]
 
     def get(self, request, pk):
-        memorandum, error = _get_memorandum(request, pk)
-        if error:
-            return error
+        # any authenticated user can read a memorandum by ID
+        memorandum = get_object_or_404(Memorandum, pk=pk)
         serializer = MemorandumDetailSerializer(memorandum, context={'request': request})
         return CustomResponse.success(
             message='Memorandum retrieved successfully.',
@@ -132,7 +132,6 @@ class MemorandumDetailView(APIView):
         return CustomResponse.success(message='Memorandum deleted successfully.')
 
 
-# Update a single section's content or image of the memorandum
 class MemorandumSectionUpdateView(APIView):
     permission_classes = [IsAuthenticated, IsSponsor]
 
@@ -158,7 +157,6 @@ class MemorandumSectionUpdateView(APIView):
         )
 
 
-# Upload or delete image for a section of the memorandum
 class SectionImageView(APIView):
     permission_classes = [IsAuthenticated, IsSponsor]
 
@@ -178,7 +176,7 @@ class SectionImageView(APIView):
                 status_code=400,
             )
 
-        # Delete the existing image file from disk before replacing
+        # delete existing image file from disk before replacing
         if section.image:
             if os.path.isfile(section.image.path):
                 os.remove(section.image.path)
