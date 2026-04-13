@@ -179,6 +179,7 @@ class LoanQuoteUpdateSerializer(serializers.ModelSerializer):
 
 class LenderDashboardRequestSerializer(serializers.ModelSerializer):
     # lightweight loan request card for lender dashboard
+    property_id        = serializers.IntegerField(source='property.id',            read_only=True)
     property_name      = serializers.CharField(source='property.property_name',    read_only=True)
     property_address   = serializers.CharField(source='property.property_address', read_only=True)
     property_type      = serializers.CharField(source='property.property_type',    read_only=True)
@@ -189,7 +190,7 @@ class LenderDashboardRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model  = LoanRequest
         fields = [
-            'id', 'property_name', 'property_address', 'property_type',
+            'id', 'property_id', 'property_name', 'property_address', 'property_type',
             'occupancy', 'year_built', 'property_image_url',
             'requested_amount', 'loan_term', 'ltv',
         ]
