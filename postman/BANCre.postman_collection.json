@@ -7329,6 +7329,204 @@
               "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Lender dashboard stats retrieved successfully.\",\n    \"timestamp\": \"2026-03-14T00:30:29.144855+00:00\",\n    \"data\": {\n        \"active_requests\": 0,\n        \"quotes_provided\": 1,\n        \"pending_review\": 0,\n        \"accepted_quotes\": 1\n    },\n    \"errors\": null\n}"
             }
           ]
+        },
+        {
+          "name": "Lender My Quotes Header",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{lender_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/lender/quote-stats/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "lender",
+                "quote-stats",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success - lender",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/dashboard/lender/quote-stats/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "dashboard",
+                    "lender",
+                    "quote-stats",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 12 Apr 2026 21:24:08 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "243"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Lender quote stats retrieved successfully.\",\n    \"timestamp\": \"2026-04-12T21:24:08.690009+00:00\",\n    \"data\": {\n        \"total_quotes\": 2,\n        \"under_review_quotes\": 0,\n        \"accepted_quotes\": 1,\n        \"total_value\": 4820000\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Lender Property Map Header",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{lender_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/lender/property-stats/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "lender",
+                "property-stats",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Success - lender",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/dashboard/lender/property-stats/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "dashboard",
+                    "lender",
+                    "property-stats",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 12 Apr 2026 21:25:30 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.12"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "244"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Lender property stats retrieved successfully.\",\n    \"timestamp\": \"2026-04-12T21:25:30.195114+00:00\",\n    \"data\": {\n        \"total_properties\": 18,\n        \"total_loan_value\": 5070000,\n        \"average_loan_amount\": 281666.67\n    },\n    \"errors\": null\n}"
+            }
+          ]
         }
       ]
     }
