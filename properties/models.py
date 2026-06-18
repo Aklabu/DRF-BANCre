@@ -82,3 +82,39 @@ class PropertyDocumentChunk(models.Model):
 
     def __str__(self):
         return f"{self.document} — chunk {self.chunk_index}"
+
+
+class PropertyChatSession(models.Model):
+    property   = models.ForeignKey(Property, on_delete=models.CASCADE, related_name='chat_sessions')
+    user       = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='property_chat_sessions')
+    title      = models.CharField(max_length=255, blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name        = 'Property Chat Session'
+        verbose_name_plural = 'Property Chat Sessions'
+        ordering            = ['-updated_at']
+
+    def __str__(self):
+        return f'{self.property.property_name} - {self.user.email} — {self.title or "Untitled"}'
+
+
+class PropertyChatMessage(models.Model):
+    ROLE_CHOICES = [
+        ('user',      'User'),
+        ('assistant', 'Assistant'),
+    ]
+
+    session    = models.ForeignKey(PropertyChatSession, on_delete=models.CASCADE, related_name='messages')
+    role       = models.CharField(max_length=10, choices=ROLE_CHOICES)
+    content    = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name        = 'Property Chat Message'
+        verbose_name_plural = 'Property Chat Messages'
+        ordering            = ['created_at']
+
+    def __str__(self):
+        return f'[{self.role}] {self.content[:60]}'

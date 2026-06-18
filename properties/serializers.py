@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Property, PropertyDocument
+from .models import Property, PropertyDocument, PropertyChatSession, PropertyChatMessage
 
 
 class PropertyDocumentSerializer(serializers.ModelSerializer):
@@ -77,3 +77,21 @@ class PropertyMapSerializer(serializers.ModelSerializer):
         if obj.property_image and request:
             return request.build_absolute_uri(obj.property_image.url)
         return None
+
+
+class PropertyChatMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model  = PropertyChatMessage
+        fields = ['id', 'role', 'content', 'created_at']
+
+
+class PropertyChatSessionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model  = PropertyChatSession
+        fields = ['id', 'property', 'title', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'property', 'created_at', 'updated_at']
+
+
+class PropertyChatInputSerializer(serializers.Serializer):
+    message    = serializers.CharField(required=True, allow_blank=False)
+    session_id = serializers.IntegerField(required=False, allow_null=True)

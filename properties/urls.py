@@ -5,6 +5,9 @@ from .views import (
     PropertyDocumentListCreateView,
     PropertyDocumentDeleteView,
     PropertyMapView,
+    PropertyChatView,
+    PropertyChatSessionListView,
+    PropertyChatSessionDetailView,
 )
 
 app_name = 'properties'
@@ -20,4 +23,7 @@ urlpatterns = [
     # Document endpoints
     path('<int:pk>/documents/', PropertyDocumentListCreateView.as_view(), name='property-document-list-create'),
     path('<int:pk>/documents/<int:doc_id>/', PropertyDocumentDeleteView.as_view(), name='property-document-delete'),
+    path('<int:pk>/chat/', PropertyChatView.as_view(), name='property-chat'),
+    path('<int:pk>/chat/sessions/', PropertyChatSessionListView.as_view(), name='property-chat-session-list-create'),
+    path('<int:pk>/chat/sessions/<int:session_id>/', PropertyChatSessionDetailView.as_view(), name='property-chat-session-detail'),
 ]
