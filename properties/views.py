@@ -9,6 +9,7 @@ from .serializers import (
     PropertySerializer, PropertyListSerializer,
     PropertyDocumentSerializer, PropertyMapSerializer,
     PropertyChatSessionSerializer, PropertyChatMessageSerializer, PropertyChatInputSerializer,
+    PlaceSerializer,
 )
 from .permissions import IsSponsor, IsLender, IsPropertyOwner
 from .validators import validate_documents
@@ -271,3 +272,21 @@ class PropertyChatSessionDetailView(APIView):
 
         session.delete()
         return CustomResponse.success(message='Chat session deleted successfully.')
+
+
+class PlaceView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = PlaceSerializer(data=request.data)
+        if not serializer.is_valid():
+            return CustomResponse.error(
+                message='Invalid place data.',
+                errors=serializer.errors,
+                status_code=status.HTTP_400_BAD_REQUEST,
+            )
+        return CustomResponse.success(
+            message='Place data received successfully.',
+            data=serializer.validated_data,
+            status_code=status.HTTP_201_CREATED,
+        )

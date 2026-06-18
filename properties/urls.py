@@ -8,6 +8,7 @@ from .views import (
     PropertyChatView,
     PropertyChatSessionListView,
     PropertyChatSessionDetailView,
+    PlaceView,
 )
 
 app_name = 'properties'
@@ -15,6 +16,9 @@ app_name = 'properties'
 urlpatterns = [
     # Map endpoint — must come before {id}/ to avoid conflict
     path('map/', PropertyMapView.as_view(), name='property-map'),
+
+    # Places endpoint
+    path('places/', PlaceView.as_view(), name='property-places'),
 
     # Property CRUD
     path('', PropertyListCreateView.as_view(), name='property-list-create'),

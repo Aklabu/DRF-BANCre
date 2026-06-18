@@ -94,4 +94,23 @@ class PropertyChatSessionSerializer(serializers.ModelSerializer):
 
 class PropertyChatInputSerializer(serializers.Serializer):
     message    = serializers.CharField(required=True, allow_blank=False)
-    session_id = serializers.IntegerField(required=False, allow_null=True)
+    session_id = serializers.IntegerField(required=False, allow_null=True)
+
+
+class PlaceSerializer(serializers.Serializer):
+    place_id = serializers.CharField(required=True)
+    name     = serializers.CharField(required=True)
+    address  = serializers.CharField(required=True)
+    lat      = serializers.FloatField(required=True)
+    lng      = serializers.FloatField(required=True)
+    photos   = serializers.ListField(
+        child=serializers.URLField(),
+        required=False,
+        default=list,
+    )
+    rating = serializers.FloatField(required=False, allow_null=True, default=None)
+    types  = serializers.ListField(
+        child=serializers.CharField(),
+        required=False,
+        default=list,
+    )
