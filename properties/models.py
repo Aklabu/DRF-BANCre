@@ -58,3 +58,27 @@ class PropertyDocument(models.Model):
         verbose_name = 'Property Document'
         verbose_name_plural = 'Property Documents'
         ordering = ['-uploaded_at']
+
+
+
+class PropertyDocumentChunk(models.Model):
+    """
+    Stores extracted text chunks and their embeddings for a PropertyDocument.
+    Populated once during memorandum generation and reused on subsequent runs.
+    """
+    document   = models.ForeignKey(
+        PropertyDocument,
+        on_delete=models.CASCADE,
+        related_name='chunks',
+    )
+    chunk_text  = models.TextField()
+    embedding   = models.JSONField()          # stores list[float] (384-dim)
+    chunk_index = models.PositiveIntegerField()  # order within the document
+
+    class Meta:
+        verbose_name        = 'Document Chunk'
+        verbose_name_plural = 'Document Chunks'
+        ordering            = ['document', 'chunk_index']
+
+    def __str__(self):
+        return f"{self.document} — chunk {self.chunk_index}"

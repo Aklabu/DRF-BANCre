@@ -6,10 +6,6 @@ model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
 def _extract_text(file_path: str) -> str:
-    """
-    Extract raw text from a file on disk.
-    Supports PDF and DOCX. Returns empty string on failure.
-    """
     ext = Path(file_path).suffix.lower()
     try:
         if ext == ".pdf":
@@ -40,7 +36,6 @@ def _extract_docx(file_path: str) -> str:
 
 
 def _split_text(text: str, chunk_size: int = 500, overlap: int = 50) -> list:
-    """Split text into overlapping chunks."""
     words = text.split()
     chunks = []
     start = 0
@@ -51,31 +46,33 @@ def _split_text(text: str, chunk_size: int = 500, overlap: int = 50) -> list:
     return chunks
 
 
-def process_document(file_path: str, vector_store) -> int:
+def process_document(file_path: str, vector_store) -> tuple[int, list[str], list[list[float]]]:
     """
-    Extract text from a file on disk, chunk it, embed it,
-    and add it to the provided VectorStore instance.
-    Returns the number of chunks added.
+    Extract text from a file, chunk it, embed it, add to vector store.
+
+    NOW ALSO returns (chunk_count, chunks, embeddings) so the caller
+    can persist them to the DB via chunk_store.save_chunks_for_document().
     """
     text = _extract_text(file_path)
     if not text.strip():
-        return 0
+        return 0, [], []
 
     chunks = _split_text(text)
     if not chunks:
-        return 0
+        return 0, [], []
 
     embeddings = model.encode(chunks, batch_size=32)
     embeddings_list = [e.tolist() for e in embeddings]
 
     vector_store.add(embeddings_list, chunks)
-    return len(chunks)
+    return len(chunks), chunks, embeddings_list      # <-- now returns data
 
 
-def add_property_details(property_data: dict, vector_store) -> None:
+def add_property_details(property_data: dict, vector_store) -> tuple[str, list[float]]:
     """
-    Format property details as a single text block, embed it,
-    and add it to the provided VectorStore instance.
+    Format property details, embed, add to vector store.
+
+    NOW ALSO returns (text, embedding) so the caller can persist it.
     """
     text = f"""Property: {property_data.get('property_name', '')}
 Address: {property_data.get('property_address', '')}
@@ -91,3 +88,4 @@ Longitude: {property_data.get('longitude', '')}"""
 
     embedding = model.encode([text])[0].tolist()
     vector_store.add([embedding], [text])
+    return text, embedding                           
