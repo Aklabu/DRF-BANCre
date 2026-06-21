@@ -3432,6 +3432,453 @@
               "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Properties retrieved successfully.\",\n    \"timestamp\": \"2026-03-16T23:17:22.053116+00:00\",\n    \"data\": [\n        {\n            \"id\": 10,\n            \"property_name\": \"Sunset Apartments\",\n            \"property_address\": \"123 Main St, Los Angeles, CA\",\n            \"property_type\": \"Multifamily\",\n            \"latitude\": \"34.0522000\",\n            \"longitude\": \"-118.2437000\",\n            \"property_image_url\": \"http://127.0.0.1:8000/media/properties/images/electronics-sale-banner-devices-online-shopping-delivery-basket-273419752.webp\"\n        },\n        {\n            \"id\": 9,\n            \"property_name\": \"lkans;lnlknasdv\",\n            \"property_address\": \"sdvSDVs\",\n            \"property_type\": \"Retail\",\n            \"latitude\": \"40.6884090\",\n            \"longitude\": \"-73.9253830\",\n            \"property_image_url\": null\n        },\n        {\n            \"id\": 8,\n            \"property_name\": \"Humboldt st\",\n            \"property_address\": \"Willimbugs, New york\",\n            \"property_type\": \"Retail\",\n            \"latitude\": \"40.7050190\",\n            \"longitude\": \"-73.9408170\",\n            \"property_image_url\": null\n        },\n        {\n            \"id\": 7,\n            \"property_name\": \"Dhanmondi 32\",\n            \"property_address\": \"Dhanmondi, Dhaka, Bangladesh\",\n            \"property_type\": \"Multifamily\",\n            \"latitude\": \"40.7320890\",\n            \"longitude\": \"-73.9462040\",\n            \"property_image_url\": null\n        },\n        {\n            \"id\": 6,\n            \"property_name\": \"Buston town\",\n            \"property_address\": \"12, Martin , density\",\n            \"property_type\": \"Multifamily\",\n            \"latitude\": \"40.7063400\",\n            \"longitude\": \"-73.9651050\",\n            \"property_image_url\": null\n        },\n        {\n            \"id\": 5,\n            \"property_name\": \"Dhanmondi 32\",\n            \"property_address\": \"Dhanmondi, Dhaka, Bangladesh\",\n            \"property_type\": \"Retail\",\n            \"latitude\": \"40.7120800\",\n            \"longitude\": \"-74.0735720\",\n            \"property_image_url\": null\n        },\n        {\n            \"id\": 4,\n            \"property_name\": \"Sansad vaban\",\n            \"property_address\": \"Sedney, Australia\",\n            \"property_type\": \"Retail\",\n            \"latitude\": \"40.6848270\",\n            \"longitude\": \"-74.0094290\",\n            \"property_image_url\": null\n        },\n        {\n            \"id\": 3,\n            \"property_name\": \"Boga lek\",\n            \"property_address\": \"12, Martin , density\",\n            \"property_type\": \"Industrial\",\n            \"latitude\": \"0.0000000\",\n            \"longitude\": \"0.0000000\",\n            \"property_image_url\": null\n        },\n        {\n            \"id\": 1,\n            \"property_name\": \"Sunset Apartments\",\n            \"property_address\": \"123 Main Street, New York, NY 10001\",\n            \"property_type\": \"Multifamily\",\n            \"latitude\": \"40.7128000\",\n            \"longitude\": \"-74.0060000\",\n            \"property_image_url\": null\n        }\n    ],\n    \"errors\": null\n}"
             }
           ]
+        },
+        {
+          "name": "Documents chatbot",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"message\": \"And how many parking spaces does it have?\",\r\n  \"session_id\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/properties/:property_id/chat/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                ":property_id",
+                "chat",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "property_id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"message\": \"What is this property about?\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/properties/:property_id/chat/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ":property_id",
+                    "chat",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "property_id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Jun 2026 16:15:11 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.13"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "916"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"Message sent successfully.\",\n    \"timestamp\": \"2026-06-18T16:15:11.406578+00:00\",\n    \"data\": {\n        \"session_id\": 1,\n        \"reply\": \"The property is the Encino Financial Center, a 230,000 square foot, Class-A office asset located in Encino, CA. It is an 89% leased, 13-story building featuring five elevators, floor-to-ceiling windows, renovated common areas, and steel frame construction. The property has approximately 70 tenants with an average suite size of 2,689 square feet. It is anchored by City National Bank and has a diverse tenant base, with no single tenant exceeding 8.5% of the building area. Recent renovations and amenities include an outdoor lounge patio, training room, café, electric vehicle charging stations, and various upgrades. The property benefits from a prime location on Ventura Boulevard, providing easy access to major highways and nearby amenities.\"\n    },\n    \"errors\": null\n}"
+            },
+            {
+              "name": "success - 2",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"message\": \"And how many parking spaces does it have?\",\r\n  \"session_id\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/properties/:property_id/chat/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ":property_id",
+                    "chat",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "property_id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Jun 2026 16:21:44 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.13"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "POST, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "285"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 201,\n    \"message\": \"Message sent successfully.\",\n    \"timestamp\": \"2026-06-18T16:21:44.688742+00:00\",\n    \"data\": {\n        \"session_id\": 1,\n        \"reply\": \"The Encino Financial Center has 1,500 below-grade parking spaces, with 300 dedicated for use by Metro transit riders.\"\n    },\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "List Chat Sessions",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/properties/:property_id/chat/sessions/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                ":property_id",
+                "chat",
+                "sessions",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "property_id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/properties/:property_id/chat/sessions/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ":property_id",
+                    "chat",
+                    "sessions",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "property_id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Jun 2026 16:39:12 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.13"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, POST, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "300"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Chat sessions retrieved successfully.\",\n    \"timestamp\": \"2026-06-18T16:39:12.090824+00:00\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"property\": 3,\n            \"title\": \"What is this property about?\",\n            \"created_at\": \"2026-06-18T16:15:05.209637Z\",\n            \"updated_at\": \"2026-06-18T16:21:44.684677Z\"\n        }\n    ],\n    \"errors\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get conversation message",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{sponsor_jwt}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/properties/:property_id/chat/sessions/:session_id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "properties",
+                ":property_id",
+                "chat",
+                "sessions",
+                ":session_id",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "property_id",
+                  "value": "3"
+                },
+                {
+                  "key": "session_id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/properties/:property_id/chat/sessions/:session_id/",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "api",
+                    "properties",
+                    ":property_id",
+                    "chat",
+                    "sessions",
+                    ":session_id",
+                    ""
+                  ],
+                  "variable": [
+                    {
+                      "key": "property_id",
+                      "value": "3"
+                    },
+                    {
+                      "key": "session_id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Thu, 18 Jun 2026 16:39:21 GMT"
+                },
+                {
+                  "key": "Server",
+                  "value": "WSGIServer/0.2 CPython/3.13.13"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, origin"
+                },
+                {
+                  "key": "Allow",
+                  "value": "GET, DELETE, HEAD, OPTIONS"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1408"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "same-origin"
+                },
+                {
+                  "key": "Cross-Origin-Opener-Policy",
+                  "value": "same-origin"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"statusCode\": 200,\n    \"message\": \"Messages retrieved successfully.\",\n    \"timestamp\": \"2026-06-18T16:39:21.311280+00:00\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"role\": \"user\",\n            \"content\": \"What is this property about?\",\n            \"created_at\": \"2026-06-18T16:15:05.218021Z\"\n        },\n        {\n            \"id\": 2,\n            \"role\": \"assistant\",\n            \"content\": \"The property is the Encino Financial Center, a 230,000 square foot, Class-A office asset located in Encino, CA. It is an 89% leased, 13-story building featuring five elevators, floor-to-ceiling windows, renovated common areas, and steel frame construction. The property has approximately 70 tenants with an average suite size of 2,689 square feet. It is anchored by City National Bank and has a diverse tenant base, with no single tenant exceeding 8.5% of the building area. Recent renovations and amenities include an outdoor lounge patio, training room, café, electric vehicle charging stations, and various upgrades. The property benefits from a prime location on Ventura Boulevard, providing easy access to major highways and nearby amenities.\",\n            \"created_at\": \"2026-06-18T16:15:11.397637Z\"\n        },\n        {\n            \"id\": 3,\n            \"role\": \"user\",\n            \"content\": \"And how many parking spaces does it have?\",\n            \"created_at\": \"2026-06-18T16:21:39.347373Z\"\n        },\n        {\n            \"id\": 4,\n            \"role\": \"assistant\",\n            \"content\": \"The Encino Financial Center has 1,500 below-grade parking spaces, with 300 dedicated for use by Metro transit riders.\",\n            \"created_at\": \"2026-06-18T16:21:44.680112Z\"\n        }\n    ],\n    \"errors\": null\n}"
+            }
+          ]
         }
       ]
     },
