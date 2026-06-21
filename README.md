@@ -4,7 +4,7 @@ BANCre is a comprehensive commercial real estate (CRE) financing platform design
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 ### 1. User Authentication & Security
 - **Role-Based Profiles:** Support for three customer categories: `Sponsor`, `Lender`, and `Broker`.
@@ -34,7 +34,7 @@ BANCre is a comprehensive commercial real estate (CRE) financing platform design
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Core Framework:** Django 6.0 & Django REST Framework (DRF)
 - **Database:** SQLite (local development), support for PostgreSQL (via `psycopg2-binary`)
@@ -45,7 +45,7 @@ BANCre is a comprehensive commercial real estate (CRE) financing platform design
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 BANCre/
@@ -66,7 +66,7 @@ BANCre/
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Python 3.10+
@@ -146,7 +146,7 @@ python manage.py runserver
 
 ---
 
-## 🛡️ API Endpoints
+## API Endpoints
 
 The API is structured under the prefix `/api/`. All endpoints except signup/login require a valid JWT header (`Authorization: Bearer <your_token>`).
 
